@@ -27,8 +27,8 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 
     cd {out}
         
-"""/home/sarahe/HybPiper/reads_first.py --cpu 1 --readfiles {p1} {p2} --unpaired {un} -b ##/home/owrisberg/Coryphoideae/target_sequence/PhyloPalms_loci_renamed_794-176_HEYcorrected.fasta --prefix {species} --bwa
-"""
+/home/sarahe/HybPiper/reads_first.py --cpu 16 -r {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {sp} --bwa
+
     touch {done}
     """.format(species=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done_file)
 
@@ -39,20 +39,20 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
 
-sp = []
+sp = ['0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020']
 
-for line in names.txt:
-    sp.append(line)
-    return sp
+#sp =[]
 
-print(sp)
+#for line in names.txt:
+#    if line not in sp:
+#        sp.append(line)
+#    return sp
 
-#for i in range(len(sp)):
-    #### Running Hybpiper
-#    gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
-#                                                        p1 = #"_1P.fastq",
-#                                                        p2 = #"_2P.fastq",
-#                                                        un = #"_UN.fastq",
-#                                                        path_out= #"/home/owrisberg/Coryphoideae/work_flow/03_hybpiper/",
-#                                                        path_in = #"/home/owrisberg/Coryphoideae/work_flow/02_trimmed/",
-#                                                        done = #"/home/owrisberg/Coryphoideae/work_flow/03_hybpiper/done/Hybpiper/"+sp[i]))
+for i in range(len(sp)):
+    gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
+                                                        p1 = "_clean-READ1.fastq",
+                                                        p2 = "_clean-READ2.fastq",
+                                                        un = "_clean-READ12-single.fastq",
+                                                        path_out= "/home/sarahe/BSc/01_HybPiper/",
+                                                        path_in = "/home/sarahe/BSc/00_data/",
+                                                        done = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
