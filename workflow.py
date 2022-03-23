@@ -33,7 +33,7 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
     """.format(sp=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done_file)
 
 
-    return (inputs, outputs, options, spec)
+    return (inputs, outputs, spec)#options, spec)
 
 ########################################################################################################################
 ######################################################---- RUN ----#####################################################
