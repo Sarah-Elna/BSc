@@ -20,7 +20,7 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
     """Hybpiper."""
     inputs = [path_in + species + paired_1, path_in + species + paired_2, path_in + species + unpaired] # The files which the job will look for before it runs
     outputs = [path_out + species, done_file] # The files which will have to be created in order for the job to be "completed"
-    #options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #Slurm commands
+    options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #Slurm commands
 
     spec = """
     source activate base
@@ -33,7 +33,7 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
     """.format(sp=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done_file)
 
 
-    return (inputs, outputs, spec)#options, spec)
+    return (inputs, outputs, options, spec)
 
 ########################################################################################################################
 ######################################################---- RUN ----#####################################################
@@ -56,5 +56,3 @@ for i in range(len(sp)):
                                                         path_out = "/home/sarahe/BSc/01_HybPiper/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
                                                         done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
-
-# species, paired_1, paired_2, unpaired, path_out, path_in, done_file
