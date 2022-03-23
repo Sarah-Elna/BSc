@@ -55,6 +55,6 @@ for i in range(len(sp)):
                                                         unpaired = "_clean-READ12-single.fastq",
                                                         path_out = "/home/sarahe/BSc/01_HybPiper/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
-                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+species[i]))
+                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
 
 # species, paired_1, paired_2, unpaired, path_out, path_in, done_file
