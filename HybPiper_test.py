@@ -16,7 +16,7 @@ gwf = Workflow()
 ########################################################################################################################
 ################################################---- Hybpiper ----######################################################
 ########################################################################################################################
-def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file):
+def hybpiper(species, p1, p2, un, path_out, path_in, done_file):
     """Hybpiper."""
     inputs = [path_in + species + paired_1, path_in + species + paired_2, path_in + species + unpaired] # The files which the job will look for before it runs
     outputs = [path_out + species, done_file] # The files which will have to be created in order for the job to be "completed"
