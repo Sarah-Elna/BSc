@@ -16,10 +16,10 @@ gwf = Workflow()
 ########################################################################################################################
 ################################################---- Hybpiper ----######################################################
 ########################################################################################################################
-def hybpiper(species, p1, p2, un, path_out, path_in, done_file):
+def hybpiper(species, p1, p2, un, path_out, path_in, done):
     """Hybpiper."""
     inputs = [path_in + species + paired_1, path_in + species + paired_2, path_in + species + unpaired] # The files which the job will look for before it runs
-    outputs = [path_out + species, done_file] # The files which will have to be created in order for the job to be "completed"
+    outputs = [path_out + species, done] # The files which will have to be created in order for the job to be "completed"
     options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #Slurm commands
 
     spec = """
@@ -30,7 +30,7 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done_file):
 /home/sarahe/HybPiper/reads_first.py --cpu 16 -r {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {sp} --bwa
 
     touch {done}
-    """.format(species=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done_file)
+    """.format(species=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done)
 
 
     return (inputs, outputs, options, spec)
