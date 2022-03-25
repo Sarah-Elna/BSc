@@ -7,5 +7,5 @@
 source activate base
 
 while read name; 
-do /home/sarahe/HybPiper/reads_first.py -b /home/sarahe/GitHub/BSc/test_target_file_single.fasta -r $name*.fastq --prefix $name --bwa
+do /home/sarahe/HybPiper/reads_first.py --cov_cutoff 0 -b /home/sarahe/GitHub/BSc/test_target_file_single.fasta -r $name*.fastq --prefix $name --bwa
 done < /home/sarahe/GitHub/BSc/names.txt
