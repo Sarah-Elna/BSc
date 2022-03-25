@@ -39,13 +39,13 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
 
-sp =[]
+sp =['0001', '0002']
 
-names = open('names.txt', 'r')
-for line in names:
-    line_stripped = line.strip()
-    if line_stripped not in sp and (line_stripped != 'file') and (line_stripped != 'READ'):
-        sp.append(line_stripped)
+#names = open('names.txt', 'r')
+#for line in names:
+#    line_stripped = line.strip()
+#    if line_stripped not in sp and (line_stripped != 'file') and (line_stripped != 'READ'):
+#        sp.append(line_stripped)
 
 
 for i in range(len(sp)):
