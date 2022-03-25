@@ -43,10 +43,10 @@ sp = ['0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0
 
 #sp =[]
 
-#for line in names.txt:
-#    if line not in sp:
-#        sp.append(line)
-#    return sp
+for line in names.txt:
+    if line not in sp and (line != 'file') and (line != 'READ'):
+        sp.append(line)
+    return sp
 
 for i in range(len(sp)):
     gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
