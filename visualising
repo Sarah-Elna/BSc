@@ -6,4 +6,4 @@
 
 source activate base
 
-python /home/sarahe/HybPiper/get_seq_lengths.py /home/sarahe/GitHub/BSc/test_target_file /home/sarahe/GitHub/BSc/names.txt dna > test_seq_lengths.txt
+python /home/sarahe/HybPiper/get_seq_lengths.py /home/sarahe/GitHub/BSc/test_target_file_single.fasta /home/sarahe/GitHub/BSc/names.txt dna > test_seq_lengths.txt
