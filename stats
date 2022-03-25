@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH --partition normal
+#SBATCH --mem-per-cpu 4G
+#SBATCH -c 1
+#SBATCH -t 12:00:00
+
+source activate base
+
+python /home/sarahe/HybPiper/hybpiper_stats.py /home/sarahe/GitHub/BSc/test_seq_lengths.txt /home/sarahe/GitHub/BSc/names.txt > test_stats.txt
