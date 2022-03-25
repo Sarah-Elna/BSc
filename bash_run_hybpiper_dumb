@@ -6,4 +6,4 @@
 
 source activate base
 
-/home/sarahe/HybPiper/reads_first.py --cpu 16 -r /home/sarahe/BSc/00_data/*_clean-READ*.fastq --unpaired /home/sarahe/BSc/00_data/*_clean-READ12-single.fastq -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --bwa
+/home/sarahe/HybPiper/reads_first.py --cpu 16 -r /home/sarahe/BSc/00_data/*_clean-READ?.fastq --unpaired /home/sarahe/BSc/00_data/*_clean-READ12-single.fastq -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --bwa
