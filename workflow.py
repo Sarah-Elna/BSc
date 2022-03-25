@@ -45,8 +45,9 @@ sp =[]
 
 names = open('names.txt', 'r')
 for line in names:
-    if line not in sp and (line != 'file') and (line != 'READ'):
-        sp.append(line)
+    line_stripped = line.strip()
+    if line_stripped not in sp and (line_stripped != 'file') and (line_stripped != 'READ'):
+        sp.append(line_stripped)
 
 print(sp)
 
