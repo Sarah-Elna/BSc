@@ -27,7 +27,7 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 
     cd {out}
         
-~/HybPiper/reads_first.py --cpu 16 -r {p1} {p2} --unpaired {un} -b ~/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {sp} --bwa
+/home/sarahe/HybPiper/reads_first.py --cpu 16 -r {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {sp} --bwa
 
     touch {done}
     """.format(sp=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done_file)
@@ -53,6 +53,6 @@ for i in range(len(sp)):
                                                         paired_1 = "_clean-READ1.fastq",
                                                         paired_2 = "_clean-READ2.fastq",
                                                         unpaired = "_clean-READ12-single.fastq",
-                                                        path_out = "~/BSc/01_HybPiper/",
-                                                        path_in = "~/BSc/00_data/",
-                                                        done_file = "~/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
+                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
+                                                        path_in = "/home/sarahe/BSc/00_data/",
+                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
