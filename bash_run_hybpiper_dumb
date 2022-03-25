@@ -8,4 +8,4 @@ source activate base
 
 while read name; 
 do /home/sarahe/HybPiper/reads_first.py -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta -r $name*.fastq --prefix $name --bwa
-done < namelist.txt
+done < /home/sarahe/GitHub/BSc/names.txt
