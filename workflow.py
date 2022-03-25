@@ -39,8 +39,6 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
 
-#sp = ['0001', '0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020']
-
 sp =[]
 
 names = open('names.txt', 'r')
@@ -49,13 +47,12 @@ for line in names:
     if line_stripped not in sp and (line_stripped != 'file') and (line_stripped != 'READ'):
         sp.append(line_stripped)
 
-print(sp)
 
-#for i in range(len(sp)):
-#    gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
-#                                                        paired_1 = "_clean-READ1.fastq",
-#                                                        paired_2 = "_clean-READ2.fastq",
-#                                                        unpaired = "_clean-READ12-single.fastq",
-#                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
-#                                                        path_in = "/home/sarahe/BSc/00_data/",
-#                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
+for i in range(len(sp)):
+    gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
+                                                        paired_1 = "_clean-READ1.fastq",
+                                                        paired_2 = "_clean-READ2.fastq",
+                                                        unpaired = "_clean-READ12-single.fastq",
+                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
+                                                        path_in = "/home/sarahe/BSc/00_data/",
+                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
