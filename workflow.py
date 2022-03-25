@@ -43,15 +43,18 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 
 sp =[]
 
-for line in names.txt:
+names = open('names.txt', 'r')
+for line in names:
     if line not in sp and (line != 'file') and (line != 'READ'):
         sp.append(line)
 
-for i in range(len(sp)):
-    gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
-                                                        paired_1 = "_clean-READ1.fastq",
-                                                        paired_2 = "_clean-READ2.fastq",
-                                                        unpaired = "_clean-READ12-single.fastq",
-                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
-                                                        path_in = "/home/sarahe/BSc/00_data/",
-                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
+print(sp)
+
+#for i in range(len(sp)):
+#    gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
+#                                                        paired_1 = "_clean-READ1.fastq",
+#                                                        paired_2 = "_clean-READ2.fastq",
+#                                                        unpaired = "_clean-READ12-single.fastq",
+#                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
+#                                                        path_in = "/home/sarahe/BSc/00_data/",
+#                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
