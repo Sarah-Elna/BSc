@@ -1,5 +1,4 @@
 ## This code has the purpouse of extracting the first four unique cifers of my data file names, add them to a list, and print them to a textfile names names.txt
-#
 
 import os
 from os import listdir
