@@ -16,21 +16,21 @@ gwf = Workflow()
 ########################################################################################################################
 ################################################---- Hybpiper ----######################################################
 ########################################################################################################################
-def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file):
+def hybpiper(species, p1, p2, un, path_out, path_in, done):
     """Hybpiper."""
-    inputs = [path_in + species + paired_1, path_in + species + paired_2, path_in + species + unpaired] # The files which the job will look for before it runs
-    outputs = [path_out + species, done_file] # The files which will have to be created in order for the job to be "completed"
-    options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #Slurm commands
+    inputs = [path_in + species +p1, path_in + species + p2, path_in + species + un] # The files which the job will look for before it runs
+    outputs = [path_out + species, done] # The files which will have to be created in order for the job to be "completed"
+    options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #'account':"Coryphoideae"} #Slurm commands
 
     spec = """
     source activate base
 
     cd {out}
         
-    /home/sarahe/HybPiper/reads_first.py --cpu 16 -r {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {sp} --bwa
+    /home/sarahe/HybPiper/reads_first.py --cpu 1 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {species} --bwa
 
     touch {done}
-    """.format(sp=species, p1 = path_in + species + paired_1, p2 = path_in + species + paired_2, un = path_in + species + unpaired , out = path_out, done = done_file)
+    """.format(species=species, p1 = path_in + species + p1,p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
 
 
     return (inputs, outputs, options, spec)
@@ -39,14 +39,19 @@ def hybpiper(species, paired_1, paired_2, unpaired, path_out, path_in, done_file
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
 
-sp =['0001', '0002']
+sp = []
 
-#names = open('names.txt', 'r')
-#for line in names:
-#    line_stripped = line.strip()
-#    if line_stripped not in sp and (line_stripped != 'file') and (line_stripped != 'READ'):
-#        sp.append(line_stripped)
+#def read_csv(file_name, file_delimiter):
+#    name_list = []
+#    with open(file_name) as csv_file:
+#        csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
+#        for row in csv_reader:
+#            name_list.append(row[1])
+#    return (name_list)
 
+#rename = "C://Users//Sarah//Documents//AU//6//Bachelor//GenomeDK//rename.csv"
+
+## sp = read_csv(rename, ';')
 
 for i in range(len(sp)):
     gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
