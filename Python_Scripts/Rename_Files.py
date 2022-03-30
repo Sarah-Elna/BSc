@@ -41,7 +41,7 @@ def rename_files(number_list, name_list, ending_list, path_in):
 
 ## Real run
 
-rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Renaming_files.csv"
+rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 ending_list = ['_clean-Read1', '_clean-Read1-single', '_clean-Read2', '_clean-Read2-single', '_clean-Read12-single']
 path_in = '/home/sarahe/BSc/00_data/'
 
