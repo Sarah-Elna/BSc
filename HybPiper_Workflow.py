@@ -10,6 +10,7 @@ Eddited by Sarah E.K. Kessel
 from os import O_SYNC, name
 from gwf import Workflow
 import os.path
+import csv
 
 gwf = Workflow()
 
@@ -18,7 +19,7 @@ gwf = Workflow()
 ########################################################################################################################
 def hybpiper(species, p1, p2, un, path_out, path_in, done):
     """Hybpiper."""
-    inputs = [path_in + species +p1, path_in + species + p2, path_in + species + un] # The files which the job will look for before it runs
+    inputs = [path_in + species + p1, path_in + species + p2, path_in + species + un] # The files which the job will look for before it runs
     outputs = [path_out + species, done] # The files which will have to be created in order for the job to be "completed"
     options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #'account':"Coryphoideae"} #Slurm commands
 
@@ -27,10 +28,9 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 
     cd {out}
         
-    /home/sarahe/HybPiper/reads_first.py --cpu 1 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/matK_rbcL_psbA_target.fasta --prefix {species} --bwa
-
+    /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file2.fasta --prefix {species} --bwa
     touch {done}
-    """.format(species=species, p1 = path_in + species + p1,p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
+    """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
 
 
     return (inputs, outputs, options, spec)
@@ -41,23 +41,23 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 
 sp = []
 
-#def read_csv(file_name, file_delimiter):
-#    name_list = []
-#    with open(file_name) as csv_file:
-#        csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
-#        for row in csv_reader:
-#            name_list.append(row[1])
-#    return (name_list)
+def read_csv(file_name, file_delimiter):
+    name_list = []
+    with open(file_name) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
+        for row in csv_reader:
+            name_list.append(row[1])
+    return (name_list)
 
-#rename = "C://Users//Sarah//Documents//AU//6//Bachelor//GenomeDK//rename.csv"
+rename = "/home/sarahe/BSc/Renaming_csv_files/Rename_Files.csv"
 
-## sp = read_csv(rename, ';')
+sp = read_csv(rename, ';')
 
 for i in range(len(sp)):
     gwf.target_from_template('Hybpiper_'+sp[i], hybpiper(species = sp[i],
-                                                        paired_1 = "_clean-READ1.fastq",
-                                                        paired_2 = "_clean-READ2.fastq",
-                                                        unpaired = "_clean-READ12-single.fastq",
+                                                        p1 = "_clean-READ1.fastq",
+                                                        p2 = "_clean-READ2.fastq",
+                                                        un = "_clean-READ12-single.fastq",
                                                         path_out = "/home/sarahe/BSc/01_HybPiper/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
-                                                        done_file = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
+                                                        done = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))

@@ -4,6 +4,8 @@
 
 ## Reading in the cvs file
 import csv
+import os
+import os.path
 
 def read_csv(file_name, file_delimiter):
     number_list = []
@@ -15,22 +17,15 @@ def read_csv(file_name, file_delimiter):
             name_list.append(row[1])
     return (number_list, name_list)
 
-## Check
-#for i in range(0,10,1):
-#    print(number_list[i], name_list[i])
-
-## Renaming the files permanently
-import os
-import os.path
-
 def rename_files(number_list, name_list, ending_list, path_in):
     for i in range(len(number_list)):
         for j in range(len(ending_list)):
             path = ("{}//{}{}.fastq".format(path_in, number_list[i], ending_list[j]))
             isFile = os.path.isfile(path)
             if (isFile == True):
-                old_name = r"{}//{}{}.fastq".format(path_in, number_list[i], ending_list[j])
-                new_name = r"{}//{}{}.fastq".format(path_in, name_list[i], ending_list[j])
+                old_ending = ending_list[j].replace('Read', 'READ')
+                old_name = r"{}/{}{}.fastq".format(path_in, number_list[i], old_ending)
+                new_name = r"{}/{}{}.fastq".format(path_in, name_list[i], ending_list[j])
                 os.rename(old_name, new_name)
             else:
                 continue
@@ -46,9 +41,9 @@ def rename_files(number_list, name_list, ending_list, path_in):
 
 ## Real run
 
-rename = "C://Users//Sarah//Documents//AU//6//Bachelor//GenomeDK//rename.csv"
+rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Renaming_files.csv"
 ending_list = ['_clean-Read1', '_clean-Read1-single', '_clean-Read2', '_clean-Read2-single', '_clean-Read12-single']
-path_in = 'C://Users//Sarah//Documents//AU//6//Bachelor//GenomeDK//Filer_fra_wolf//trimmed_kopi'
+path_in = '/home/sarahe/BSc/00_data/'
 
 number_list, name_list = read_csv(rename, ';')
 
