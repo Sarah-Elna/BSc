@@ -21,6 +21,7 @@ def rename_files(number_list, name_list, ending_list, path_in):
     for i in range(len(number_list)):
         for j in range(len(ending_list)):
             path = ("{}/{}{}.fastq".format(path_in, number_list[i], ending_list[j]))
+            print(path)
             isFile = os.path.isfile(path)
             if (isFile == True):
                 print(True)
@@ -29,7 +30,7 @@ def rename_files(number_list, name_list, ending_list, path_in):
                 #new_name = r"{}/{}{}.fastq".format(path_in, name_list[i], ending_list[j])
                 #os.rename(old_name, new_name)
             else:
-                print('error')
+                continue
     return ':-D'
 
 ## Test run
