@@ -32,15 +32,7 @@ def rename_files(number_list, name_list, ending_list, path_in):
                 continue
     return ':-D'
 
-## Test run
-#test_number_list = ['0001', '0002']
-#test_name_list = ['The_first', 'The_second']
-#test_ending_list = ['_clean-Read1', '_clean-Read1-single', '_clean-Read2', '_clean-Read2-single', '_clean-Read12-single']
-#test_path_in = 'C://Users//Sarah//Desktop//Testing_Testing//Test_files'
-
-#rename_files(test_number_list, test_name_list, test_ending_list, test_path_in)
-
-## Real run
+## Run
 
 rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 ending_list = ['_clean-Read1', '_clean-Read1-single', '_clean-Read2', '_clean-Read2-single', '_clean-Read12-single']
