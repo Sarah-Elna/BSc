@@ -46,5 +46,6 @@ ending_list = ['_clean-Read1', '_clean-Read1-single', '_clean-Read2', '_clean-Re
 path_in = '/home/sarahe/BSc/00_data/'
 
 number_list, name_list = read_csv(rename, ';')
+print(number_list, name_list)
 
 print(rename_files(number_list, name_list, ending_list, path_in))
