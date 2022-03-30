@@ -20,7 +20,7 @@ def read_csv(file_name, file_delimiter):
 def rename_files(number_list, name_list, ending_list, path_in):
     for i in range(len(number_list)):
         for j in range(len(ending_list)):
-            path = ("{}/{}{}.fastq".format(path_in, number_list[i], ending_list[j]))
+            path = ("{}{}{}.fastq".format(path_in, number_list[i], ending_list[j]))
             print(path)
             isFile = os.path.isfile(path)
             if (isFile == True):
