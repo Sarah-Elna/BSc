@@ -46,7 +46,10 @@ def read_csv(file_name, file_delimiter):
     with open(file_name) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
         for row in csv_reader:
-            name_list.append(row[1])
+            file_path = ("/home/sarahe/BSc/00_data/"+str(row[1]))
+            isFile = os.path.isfile(path)
+            if (isFile == True):
+                name_list.append(row[1])
     return (name_list)
 
 rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
