@@ -23,12 +23,13 @@ def rename_files(number_list, name_list, ending_list, path_in):
             path = ("{}//{}{}.fastq".format(path_in, number_list[i], ending_list[j]))
             isFile = os.path.isfile(path)
             if (isFile == True):
-                old_ending = ending_list[j].replace('Read', 'READ')
-                old_name = r"{}/{}{}.fastq".format(path_in, number_list[i], old_ending)
-                new_name = r"{}/{}{}.fastq".format(path_in, name_list[i], ending_list[j])
-                os.rename(old_name, new_name)
+                print(True)
+                #old_ending = ending_list[j].replace('Read', 'READ')
+                #old_name = r"{}/{}{}.fastq".format(path_in, number_list[i], old_ending)
+                #new_name = r"{}/{}{}.fastq".format(path_in, name_list[i], ending_list[j])
+                #os.rename(old_name, new_name)
             else:
-                continue
+                print('error')
     return ':-D'
 
 ## Test run
