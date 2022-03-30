@@ -20,15 +20,14 @@ def read_csv(file_name, file_delimiter):
 def rename_files(number_list, name_list, ending_list, path_in):
     for i in range(len(number_list)):
         for j in range(len(ending_list)):
-            path = ("{}{}{}.fastq".format(path_in, number_list[i], ending_list[j]))
-            print(path)
+            old_ending = ending_list[j].replace('Read', 'READ')
+            path = ("{}{}{}.fastq".format(path_in, number_list[i], old_ending))
             isFile = os.path.isfile(path)
             if (isFile == True):
                 print(True)
-                #old_ending = ending_list[j].replace('Read', 'READ')
-                #old_name = r"{}/{}{}.fastq".format(path_in, number_list[i], old_ending)
-                #new_name = r"{}/{}{}.fastq".format(path_in, name_list[i], ending_list[j])
-                #os.rename(old_name, new_name)
+                old_name = r"{}/{}{}.fastq".format(path_in, number_list[i], old_ending)
+                new_name = r"{}/{}{}.fastq".format(path_in, name_list[i], ending_list[j])
+                os.rename(old_name, new_name)
             else:
                 continue
     return ':-D'
