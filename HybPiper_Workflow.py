@@ -49,7 +49,7 @@ def read_csv(file_name, file_delimiter):
             name_list.append(row[1])
     return (name_list)
 
-rename = "/home/sarahe/BSc/Renaming_csv_files/Rename_Files.csv"
+rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 
 sp = read_csv(rename, ';')
 
