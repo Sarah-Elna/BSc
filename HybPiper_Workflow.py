@@ -54,7 +54,7 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 sp = read_csv(rename, ';')
 
 for i in range(len(sp)):
-    gwf.target_from_template('Hybpiper_'+sp[i][0:10], hybpiper(species = sp[i],
+    gwf.target_from_template('Hybpiper_'+str([i]), hybpiper(species = sp[i],
                                                         p1 = "_clean-READ1.fastq",
                                                         p2 = "_clean-READ2.fastq",
                                                         un = "_clean-READ12-single.fastq",
