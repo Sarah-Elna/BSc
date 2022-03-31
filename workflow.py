@@ -40,7 +40,6 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 ########################################################################################################################
 
 sp = []
-ending = ["_clean-Read1.fastq", "_clean-Read2.fastq", "_clean-Read12-single.fastq"]
 
 def read_csv(file_name, file_delimiter):
     name_list = []
@@ -48,7 +47,7 @@ def read_csv(file_name, file_delimiter):
         csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
         for row in csv_reader:
             for i in range(0, len(ending)):
-                file_path = ("/home/sarahe/BSc/00_data/"+str(row[1])+ending[i])
+                file_path = ("/home/sarahe/BSc/00_data/"+str(row[1])+"_clean-Read1.fastq")
                 isFile = os.path.isfile(file_path)
                 if (isFile == True) and row[1] not in name_list:
                     name_list.append(row[1])
