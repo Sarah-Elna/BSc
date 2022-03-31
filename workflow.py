@@ -44,8 +44,6 @@ ending = ["_clean-Read1.fastq", "_clean-Read2.fastq", "_clean-Read12-single.fast
 
 def read_csv(file_name, file_delimiter):
     name_list = []
-#    found = 0
-#    not_found = 0
     with open(file_name) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
         for row in csv_reader:
@@ -53,24 +51,22 @@ def read_csv(file_name, file_delimiter):
                 file_path = ("/home/sarahe/BSc/00_data/"+str(row[1])+ending[i])
                 isFile = os.path.isfile(file_path)
                 if (isFile == True) and row not in name_list:
-#                    found += 1
                     name_list.append(row[1])
                 else:
-#                    not_found += 1
-                    print(file_path)
-#    print(found, not_found)
+                    print('could not find' + file_path)
     return (name_list)
 
 rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 
 sp = read_csv(rename, ';')
-print(len(sp))
 
 for i in range(len(sp)):
-    gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
-                                                        p1 = "_clean-Read1.fastq",
-                                                        p2 = "_clean-Read2.fastq",
-                                                        un = "_clean-Read12-single.fastq",
-                                                        path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
-                                                        path_in = "/home/sarahe/BSc/00_data/",
-                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
+    print(len(sp))
+    print(sp.sort())
+#    gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
+#                                                        p1 = "_clean-Read1.fastq",
+#                                                        p2 = "_clean-Read2.fastq",
+#                                                        un = "_clean-Read12-single.fastq",
+#                                                        path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
+#                                                        path_in = "/home/sarahe/BSc/00_data/",
+#                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
