@@ -51,6 +51,7 @@ def read_csv(file_name, file_delimiter):
         for row in csv_reader:
             for i in range(0, len(ending)):
                 file_path = ("/home/sarahe/BSc/00_data/"+str(row[1])+ending[i])
+                print(file_path)
                 isFile = os.path.isfile(file_path)
                 if (isFile == True):
                     found += 1
