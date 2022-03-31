@@ -24,12 +24,15 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00"} #'account':"Coryphoideae"} #Slurm commands
 
     spec = """
-    source activate base
+    source deactivate
 
     cd {out}
         
     /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Wolf_Target.fasta --prefix {species} --bwa
     touch {done}
+
+    source activate py35
+
     """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
 
 
@@ -58,7 +61,7 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 
 sp = read_csv(rename, ';')
 
-for i in range(len(sp)):
+for i in range(0, 10):
     gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
