@@ -51,20 +51,19 @@ def read_csv(file_name, file_delimiter):
         for row in csv_reader:
             for i in range(0, len(ending)):
                 file_path = ("/home/sarahe/BSc/00_data/"+str(row[1])+ending[i])
-                print(file_path)
                 isFile = os.path.isfile(file_path)
                 if (isFile == True):
                     found += 1
                     name_list.append(row[1])
                 else:
                     not_found += 1
+                    print(file_path)
     print(found, not_found)
     return (name_list)
 
 rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 
 sp = read_csv(rename, ';')
-print(sp)
 
 for i in range(len(sp)):
     gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
