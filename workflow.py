@@ -43,16 +43,19 @@ sp = []
 
 def read_csv(file_name, file_delimiter):
     name_list = []
+    found = 0
+    not_found = 0
     with open(file_name) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
         for row in csv_reader:
-            file_path = ("/home/sarahe/BSc/00_data/"+str(row[1]))
-            print(file_path)
+            file_path = ("/home/sarahe/BSc/00_data/"+str(row[1])+'*')
             isFile = os.path.isfile(file_path)
             if (isFile == True):
+                found += 1
                 name_list.append(row[1])
             else:
-                continue
+                not_found += 1
+    print(found, not_found)
     return (name_list)
 
 rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
