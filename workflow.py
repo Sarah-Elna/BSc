@@ -68,9 +68,9 @@ print(sp)
 
 for i in range(len(sp)):
     gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
-                                                        p1 = "_clean-READ1.fastq",
-                                                        p2 = "_clean-READ2.fastq",
-                                                        un = "_clean-READ12-single.fastq",
+                                                        p1 = "_clean-Read1.fastq",
+                                                        p2 = "_clean-Read2.fastq",
+                                                        un = "_clean-Read12-single.fastq",
                                                         path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
                                                         done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
