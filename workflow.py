@@ -57,14 +57,12 @@ def read_csv(file_name, file_delimiter):
 rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 
 sp = read_csv(rename, ';')
-print(len(sp))
-print(sp)
 
-#for i in range(len(sp)):
-#    gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
-#                                                        p1 = "_clean-Read1.fastq",
-#                                                        p2 = "_clean-Read2.fastq",
-#                                                        un = "_clean-Read12-single.fastq",
-#                                                        path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
-#                                                        path_in = "/home/sarahe/BSc/00_data/",
-#                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
+for i in range(len(sp)):
+    gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
+                                                        p1 = "_clean-Read1.fastq",
+                                                        p2 = "_clean-Read2.fastq",
+                                                        un = "_clean-Read12-single.fastq",
+                                                        path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
+                                                        path_in = "/home/sarahe/BSc/00_data/",
+                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
