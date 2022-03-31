@@ -56,7 +56,7 @@ def read_csv(file_name, file_delimiter):
                     found += 1
                     name_list.append(row[1])
                 else:
-                not_found += 1
+                    not_found += 1
     print(found, not_found)
     return (name_list)
 
