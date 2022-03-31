@@ -40,7 +40,7 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 ########################################################################################################################
 
 sp = []
-ending = ["_clean-READ1.fastq", "_clean-READ2.fastq", "_clean-READ12-single.fastq"]
+ending = ["_clean-Read1.fastq", "_clean-Read2.fastq", "_clean-Read12-single.fastq"]
 
 def read_csv(file_name, file_delimiter):
     name_list = []
