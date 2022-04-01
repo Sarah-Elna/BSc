@@ -24,7 +24,9 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     options = {'cores': 1, 'memory': "20g", 'walltime': "2:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"} #Slurm commands
 
     spec = """
-    conda activate
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+
+    source activate base
 
     cd {out}
         
