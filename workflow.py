@@ -21,12 +21,10 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     """Hybpiper."""
     inputs = [path_in + species + p1, path_in + species + p2, path_in + species + un] # The files which the job will look for before it runs
     outputs = [path_out + species, done] # The files which will have to be created in order for the job to be "completed"
-    options = {'cores': 1, 'memory': "20g", 'walltime': "2:00:00"} #, 'account':"Dypsis_Chloroplast_Phylogeny"} #Slurm commands
+    options = {'cores': 1, 'memory': "20g", 'walltime': "2:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"} #Slurm commands
 
     spec = """
-    conda init bash
-
-    conda deactivate
+    conda activate
 
     cd {out}
         
