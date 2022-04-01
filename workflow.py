@@ -33,8 +33,6 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file3.fasta --prefix {species} --bwa
     mkdir done
     cd done
-    mkdir HybPiper
-    cd HybPiper
     touch {species}
     """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
 
