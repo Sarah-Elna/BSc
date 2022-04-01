@@ -24,15 +24,12 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     options = {'cores': 1, 'memory': "20g", 'walltime': "2:00:00"} #'account':"Coryphoideae"} #Slurm commands
 
     spec = """
-    conda deactivate
+    source activate base
 
     cd {out}
         
     /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Wolf_Target.fasta --prefix {species} --bwa
     touch {done}
-
-    conda activate py35
-
     """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
 
 
