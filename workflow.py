@@ -21,7 +21,7 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     """Hybpiper."""
     inputs = [path_in + species + p1, path_in + species + p2, path_in + species + un] # The files which the job will look for before it runs
     outputs = [path_out + species, done] # The files which will have to be created in order for the job to be "completed"
-    options = {'cores': 1, 'memory': "20g", 'walltime': "2:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"} #Slurm commands
+    options = {'cores': 1, 'memory': "20g", 'walltime': "100:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"} #Slurm commands
 
     spec = """
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
@@ -30,7 +30,7 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 
     cd {out}
         
-    /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Wolf_Target.fasta --prefix {species} --bwa
+    /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file3.fasta --prefix {species} --bwa
     touch {done}
     """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
 
@@ -65,6 +65,6 @@ for i in range(0, 10):
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
                                                         un = "_clean-Read12-single.fastq",
-                                                        path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
+                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
-                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
+                                                        done = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]+'.txt'))
