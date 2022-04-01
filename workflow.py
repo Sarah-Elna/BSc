@@ -65,6 +65,6 @@ for i in range(0, 10):
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
                                                         un = "_clean-Read12-single.fastq",
-                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
+                                                        path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
-                                                        done = "/home/sarahe/BSc/01_HybPiper/done/Hybpiper/"+sp[i]))
+                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
