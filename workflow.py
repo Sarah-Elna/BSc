@@ -17,7 +17,7 @@ gwf = Workflow()
 ########################################################################################################################
 ################################################---- Hybpiper ----######################################################
 ########################################################################################################################
-def hybpiper(species, p1, p2, un, path_out, path_in, done):
+def hybpiper(species, p1, p2, un, path_out, path_in, done_directory, done_file):
     """Hybpiper."""
     inputs = [path_in + species + p1, path_in + species + p2, path_in + species + un] # The files which the job will look for before it runs
     outputs = [path_out + species, done] # The files which will have to be created in order for the job to be "completed"
@@ -31,8 +31,9 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
     cd {out}
         
     /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Wolf_Target.fasta --prefix {species} --bwa
-    touch {done}
-    """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done = done)
+    mkdir {done_d}
+    touch {done_d}{done_f}
+    """.format(species=species, p1 = path_in + species + p1, p2 = path_in + species + p2, un = path_in + species + un , out = path_out, done_d = done_directory, done_f = done_file)
 
     return (inputs, outputs, options, spec)
 
@@ -59,11 +60,12 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 
 sp = read_csv(rename, ';')
 
-for i in range(0, 1):
+for i in range(0, 10):
     gwf.target_from_template('Hybpiper_'+str(i), hybpiper(species = sp[i],
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
                                                         un = "_clean-Read12-single.fastq",
                                                         path_out = "/home/sarahe/BSc/01_HybPiper_wolf_test/",
                                                         path_in = "/home/sarahe/BSc/00_data/",
-                                                        done = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/"+sp[i]))
+                                                        done_directory = "/home/sarahe/BSc/01_HybPiper_wolf_test/done/Hybpiper/",
+                                                        done_file = sp[i])
