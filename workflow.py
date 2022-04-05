@@ -67,6 +67,6 @@ for i in range(0, len(sp)):
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
                                                         un = "_clean-Read12-single.fastq",
-                                                        path_out = "/home/sarahe/BSc/01_HybPiper/",
-                                                        path_in = "/home/sarahe/BSc/00_data/",
-                                                        done = "/home/sarahe/BSc/01_HybPiper/done/"+sp[i]))
+                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
