@@ -62,7 +62,7 @@ def get_namelist(done_path):
 ########################################################################################################################
 def seq_lenghts(path):
     """Get the sequence lengths."""
-    inputs = [path + 'namelist.txt']
+    inputs = [path + 'name_list.txt']
     outputs = [path + 'seq_lengths.txt']
     options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
