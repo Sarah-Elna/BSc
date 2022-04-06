@@ -79,7 +79,7 @@ def seq_lenghts(path):
 def stats_summary(path):
     """Get statistical summary."""
     inputs = [path + 'seq_lengths.txt', path + 'name_list.txt']
-    outpute = [path + 'stats.txt']
+    outputs = [path + 'stats.txt']
     options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
