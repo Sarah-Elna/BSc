@@ -145,10 +145,10 @@ for i in range(0, len(sp)):
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
 
-gwf.target_from_template('name list'), get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
+gwf.target_from_template('name_list'), get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
                                                 output_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done")
 
-gwf.target_from_template('sequence length'), seq_lenghts(done_path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/',
+gwf.target_from_template('sequence_length'), seq_lenghts(done_path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/',
                                                         output_path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/')
 
 gwf.target_from_template('statistics'), stats_summary(seq_len_path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/')
