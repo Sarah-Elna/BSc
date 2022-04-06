@@ -77,7 +77,7 @@ def seq_lenghts(done_path, output_path):
 #############################################---- Seq lengths ----######################################################
 ########################################################################################################################
 def stats_summary(seq_len_path):
-    """Get statistical summary.""""
+    """Get statistical summary."""
     inputs = [seq_len_path + 'seq_lengths.txt', name_list_path + 'name_list.txt']
     outpute = output_path + 'stats.txt']
     options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
