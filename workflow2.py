@@ -64,6 +64,7 @@ def seq_lenghts(path):
     options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
+    cd /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper
     python /home/sarahe/HybPiper/get_seq_lengths.py /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file3.fasta {path}name_list.txt dna > {path}seq_lengths.txt
     """.format(path = path)
 
