@@ -88,27 +88,28 @@ def stats_summary(path):
 ########################################################################################################################
 #############################################---- Coverage ----#########################################################
 ########################################################################################################################
-#def coverage(species, path_in, path_out, done,all_bam,all_sorted_bam, all_sorted_bam_bai, bam, cov,fasta,fasta_amb,fasta_ann,fasta_bwt,fasta_pac,fasta_sa,trimmed_fasta,up_bam):
-#    """Calculating coverage of sequences."""
-#    inputs = [path_in+species, path_in+"done/Intronerate/"+species]
-#    outputs = [path_out+species+all_bam, path_out+species+all_sorted_bam, path_out+species+all_sorted_bam_bai, path_out+species+bam,
-#    path_out+species+cov, path_out+species+fasta, path_out+species+fasta_amb, path_out+species+fasta_ann, path_out+species+fasta_bwt,
-#    path_out+species+fasta_pac, path_out+species+fasta_sa, path_out+species+trimmed_fasta, path_out+species+up_bam,done] #ALL the output files
-#    options = {'cores': 4, 'memory': "20g", 'walltime': "08:00:00", 'account':"Coryphoideae"}
-#
-#    spec = """
-#    source activate base
-#    
-#    cd {path_in}
-#
-#    python3 /home/owrisberg/Coryphoideae/github_code/coryphoideae_species_tree/coverage.py {sp}
-#    
-#    touch {done}
-#
-#    """.format(sp = species, done = done, path_in = path_in)
-#
-#    return (inputs, outputs, options, spec)
-#
+def coverage(species, path_in, path_out, done, all_bam, all_sorted_bam, all_sorted_bam_bai, bam, cov, fasta, fasta_amb, fasta_ann, fasta_bwt, fasta_pac, fasta_sa, trimmed_fasta, up_bam):
+    """Calculating coverage of sequences."""
+    inputs = #![path_in+species, path_in+"done/Intronerate/"+species]
+    outputs = [path_out+species+all_bam, path_out+species+all_sorted_bam, path_out+species+all_sorted_bam_bai, path_out+species+bam,
+    path_out+species+cov, path_out+species+fasta, path_out+species+fasta_amb, path_out+species+fasta_ann, path_out+species+fasta_bwt,
+    path_out+species+fasta_pac, path_out+species+fasta_sa, path_out+species+trimmed_fasta, path_out+species+up_bam,done] #ALL the output files
+    options = {'cores': 4, 'memory': "20g", 'walltime': "08:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
+    
+    cd {path_in}
+
+    python3 #!/home/owrisberg/Coryphoideae/github_code/coryphoideae_species_tree/coverage.py {sp}
+    
+    touch {done}
+
+    """.format(sp = species, done = done, path_in = path_in)
+
+    return (inputs, outputs, options, spec)
+
 ########################################################################################################################
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
@@ -147,3 +148,22 @@ gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dyp
 gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
 
 gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
+
+#### Coverage
+gwf.target_from_template('Coverage_'+sp[i], coverage(species = sp[i],
+                                                    path_in = #!"/home/owrisberg/Coryphoideae/work_flow/03_hybpiper/",
+                                                    all_bam = "_all.bam",
+                                                    all_sorted_bam ="_all_sorted.bam",
+                                                    all_sorted_bam_bai="_all_sorted.bam.bai",
+                                                    bam =".bam",
+                                                    cov=".cov",
+                                                    fasta = ".fasta",
+                                                    fasta_amb = ".fasta.amb",
+                                                    fasta_ann = ".fasta.ann",
+                                                    fasta_bwt = ".fasta.bwt",
+                                                    fasta_pac = ".fasta.pac",
+                                                    fasta_sa = ".fasta.sa",
+                                                    trimmed_fasta = "_trimmed.fasta",
+                                                    up_bam = "_up.bam",
+                                                    path_out = #!"/home/owrisberg/Coryphoideae/work_flow/04_coverage/",
+                                                    done = #!"/home/owrisberg/Coryphoideae/work_flow/04_coverage/done/Coverage/"+sp[i]))
