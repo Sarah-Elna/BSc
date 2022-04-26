@@ -88,24 +88,24 @@ def stats_summary(path):
 ##############################################---- Intronerate ----######################################################
 #########################################################################################################################
 
-def intronerate(species, path_in, done):
-    """Intronerate the sequencec from hybpiper."""
-    inputs = [path_in + species]
-    outputs = [done]
-    options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+# def intronerate(species, path_in, done):
+#     """Intronerate the sequencec from hybpiper."""
+#     inputs = [path_in + species]
+#     outputs = [done]
+#     options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
-    spec = """
-    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
-    source activate base
+#     spec = """
+#     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+#     source activate base
 
-    cd {path_in}
+#     cd {path_in}
 
-    python3 /home/sarahe/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
+#     python3 /home/sarahe/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
     
-    touch {done}
-    """.format(sp = species, done = done, path_in = path_in)
+#     touch {done}
+#     """.format(sp = species, done = done, path_in = path_in)
 
-    return (inputs, outputs, options, spec)
+#     return (inputs, outputs, options, spec)
 
 ########################################################################################################################
 #############################################---- Coverage ----#########################################################
