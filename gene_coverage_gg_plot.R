@@ -32,7 +32,7 @@ heatmap.2(percent.len, Rowv=FALSE, Colv=FALSE, dendrogram= c('none'),
           #Then we make the first row and first column, which contain the (unplotted) dendrograms, very small with lhei and lwid.
           #The second and third values in lhei correspond to the relative height of the chart vs the key.
           
-          lmat=rbind( c(0,3), c(2,1), c(0,4) ), lhei=c(0.01, 10, 3), lwid=c(0.01,1),
+          lmat=rbind( c(0,3), c(2,1), c(0,4) ), lhei=c(0.1, 13, 3), lwid=c(0.01,1),
           
           #Specifies a grayscale color pallette 
           col = gray.colors(10,start=0.9,end=0.3,gamma=2.2),
