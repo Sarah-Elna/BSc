@@ -102,7 +102,7 @@ def coverage(species, path_in, path_out, done, all_bam, all_sorted_bam, all_sort
     
     cd {path_in}
 
-    python3 /home/sarahe/GitHub/BSc/Python_Scripts/coverage.py {sp}
+    python3 /home/sarahe/GitHub/BSc/Python_Scripts/coverage_eddit.py {sp}
     
     touch {done}
 
