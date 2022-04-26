@@ -74,7 +74,7 @@ subprocess.call(cmd,shell=True)
 print('reads deduplicated for sample '+sample)
 
 # calculate coverage
-cmd = 'samtools depth /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/'+sample+'_all_sorted_deduplicated.bam > /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/
+cmd = 'samtools depth /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/'+sample+'_all_sorted_deduplicated.bam > /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/'
 print('coverage calculated for sample '+sample)
 
 # define function to replace nth position of sequence with N
