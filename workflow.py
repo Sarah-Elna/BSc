@@ -188,24 +188,24 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 sp = read_csv(rename, ';')
 
 # run hybpiper
-for i in range(0, len(sp)):
-    gwf.target_from_template('hybpiper_'+str(i), hybpiper(species = sp[i],
-                                                        p1 = "_clean-Read1.fastq",
-                                                        p2 = "_clean-Read2.fastq",
-                                                        un = "_clean-Read12-single.fastq",
-                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
+#for i in range(0, len(sp)):
+#    gwf.target_from_template('hybpiper_'+str(i), hybpiper(species = sp[i],
+#                                                        p1 = "_clean-Read1.fastq",
+#                                                        p2 = "_clean-Read2.fastq",
+#                                                        un = "_clean-Read12-single.fastq",
+#                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+#                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
+#                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
 
 # get name list from hybpiper run
-gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
+#gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
                                                     name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
 
 # get sequence length file necessary for statistical summary
-gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
+#gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
 
 # get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
-gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
+#gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
 for i in range(0, len(sp)):
@@ -235,7 +235,7 @@ for i in range(0, len(sp)):
 #"HEY514","HEY51","HEY52","HEY556","HEY563","HEY576","HEY581","HEY587","HEY604","HEY609","HEY61","HEY629","HEY630","HEY637","HEY673","HEY680","HEY703","HEY717","HEY727","HEY728","HEY732","HEY736","HEY740","HEY743","HEY757","HEY758","HEY762","HEY763","HEY785","HEY790","HEY793","HEY7","HEY807","HEY808","HEY822","HEY825","HEY82","HEY83","HEY84","HEY855","HEY856","HEY863","HEY872","HEY874","HEY883e","HEY883n","HEY886","HEY88","HEY897","HEY89","HEY938","HEY948","HEY94","HEY950","HEY958","HEY964","HEY977","HEY982","HEY985","HEY989"]
 #gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
 
-#gwf.target_from_template('Retrieve_genes', retrieve(path_in=#!"/home/owrisberg/Coryphoideae/work_flow/04_coverage/"))
+#gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))
 
 
 #for i in range(len(genes)):
