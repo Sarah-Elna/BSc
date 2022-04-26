@@ -208,7 +208,7 @@ sp = read_csv(rename, ';')
 #gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
-for i in range(0, len(sp)):
+for i in range(0, 10):
     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         all_bam = "_all.bam",
