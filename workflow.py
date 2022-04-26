@@ -209,8 +209,6 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 # create full species list
 sp = read_csv(rename, ';')
 
-print(sp)
-
 # run hybpiper
 #for i in range(0, len(sp)):
 #    gwf.target_from_template('hybpiper_'+str(i), hybpiper(species = sp[i],
