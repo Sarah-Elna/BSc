@@ -25,7 +25,6 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 
     spec = """
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
-
     source activate base
 
     cd {out}
@@ -82,6 +81,29 @@ def stats_summary(path):
     spec = """
     python /home/sarahe/HybPiper/hybpiper_stats.py {path}seq_lengths.txt {path}name_list.txt > {path}stats.txt
     """.format(path = path)
+
+    return (inputs, outputs, options, spec)
+
+#########################################################################################################################
+##############################################---- Intronerate ----######################################################
+#########################################################################################################################
+
+def intronerate(species, path_in, done):
+    """Intronerate the sequencec from hybpiper."""
+    inputs = [path_in + species]
+    outputs = [done]
+    options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Coryphoideae"}
+
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
+
+    cd {path_in}
+
+    python3 /home/owrisberg/Coryphoideae/github_code/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
+    
+    touch {done}
+    """.format(sp = species, done = done, path_in = path_in)
 
     return (inputs, outputs, options, spec)
 
@@ -187,6 +209,8 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_Files.csv"
 # create full species list
 sp = read_csv(rename, ';')
 
+print(sp)
+
 # run hybpiper
 #for i in range(0, len(sp)):
 #    gwf.target_from_template('hybpiper_'+str(i), hybpiper(species = sp[i],
@@ -209,6 +233,11 @@ sp = read_csv(rename, ';')
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
 for i in range(0, 10):
+    #### Getting introns
+    gwf.target_from_template('Intronerate_'+str(i), intronerate(species= sp[i],
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
+    ### Running covverage
     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         all_bam = "_all.bam",
