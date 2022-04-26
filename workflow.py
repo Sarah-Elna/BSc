@@ -100,7 +100,7 @@ def intronerate(species, path_in, done):
 
     cd {path_in}
 
-    python3 /home/owrisberg/Coryphoideae/github_code/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
+    python3 /home/sarahe/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
     
     touch {done}
     """.format(sp = species, done = done, path_in = path_in)
