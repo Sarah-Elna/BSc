@@ -92,7 +92,7 @@ def intronerate(species, path_in, done):
     """Intronerate the sequencec from hybpiper."""
     inputs = [path_in + species]
     outputs = [done]
-    options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Coryphoideae"}
+    options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
