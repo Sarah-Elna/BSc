@@ -36,9 +36,6 @@ for locus in loci:
 with open('/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/'+sample+'.fasta', "w") as outfile:
  	SeqIO.write(list(sequences.values()), outfile, "fasta")
 
-
-### /home/owrisberg/Coryphoideae/work_flow/02_trimmed/
-
 print(sample+'.fasta generated')
 	
 # BWA index targets
