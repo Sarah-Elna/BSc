@@ -208,7 +208,7 @@ gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dyp
 gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
-gwf.target_from_template('Coverage_'+i, coverage(species = sp[i],
+gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                     all_bam = "_all.bam",
                                                     all_sorted_bam ="_all_sorted.bam",
