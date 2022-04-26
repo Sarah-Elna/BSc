@@ -98,63 +98,63 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 #############################################---- Paralogs ----#########################################################
 ########################################################################################################################
 
-def paralogs(species,path_in, done):
-    """Find Paralog genes and write them in the file called paralog.txt"""
-    inputs = [path_in + species]
-    outputs = [done]
-    options = {'cores': 2, 'memory': "10g", 'walltime': "8:00:00", 'account':"Coryphoideae"}
+# def paralogs(species,path_in, done):
+#     """Find Paralog genes and write them in the file called paralog.txt"""
+#     inputs = [path_in + species]
+#     outputs = [done]
+#     options = {'cores': 2, 'memory': "10g", 'walltime': "8:00:00", 'account':"Coryphoideae"}
 
-    spec = """
-    source activate base
+#     spec = """
+#     source activate base
     
     
-    cd {path_in}
+#     cd {path_in}
         
-    python /home/owrisberg/Coryphoideae/github_code/HybPiper/paralog_investigator.py {sp} 2>> paralog.txt
+#     python /home/owrisberg/Coryphoideae/github_code/HybPiper/paralog_investigator.py {sp} 2>> paralog.txt
 
     
-    touch {done}
+#     touch {done}
 
 
-    """.format(sp = species, done = done, path_in = path_in)
-    return (inputs, outputs, options, spec)
+#     """.format(sp = species, done = done, path_in = path_in)
+#     return (inputs, outputs, options, spec)
 
-def no_paralogs(species, path_in, done, no_paralogs):
-    """Wrapper script to continue pipeline when Hybpiper finds no paralogs"""
-    inputs = [path_in + species]
-    outputs = [done]
-    options = {'cores': 2, 'memory': "10g", 'walltime': "0:05:00", 'account':"Coryphoideae"}
+# def no_paralogs(species, path_in, done, no_paralogs):
+#     """Wrapper script to continue pipeline when Hybpiper finds no paralogs"""
+#     inputs = [path_in + species]
+#     outputs = [done]
+#     options = {'cores': 2, 'memory': "10g", 'walltime': "0:05:00", 'account':"Coryphoideae"}
 
-    spec = """
+#     spec = """
 
-    touch {done}
-    touch {np}
+#     touch {done}
+#     touch {np}
 
-    """.format(done=done, np=no_paralogs)
-    return(inputs, outputs, options, spec)
+#     """.format(done=done, np=no_paralogs)
+#     return(inputs, outputs, options, spec)
 
-# ########################################################################################################################
-# #############################################---- Intronerate ----######################################################
-# ########################################################################################################################
+# # ########################################################################################################################
+# # #############################################---- Intronerate ----######################################################
+# # ########################################################################################################################
 
-def intronerate(species, path_in, done):
-    """Intronerate the sequencec from hybpiper."""
-    inputs = [path_in + species]
-    outputs = [done]
-    options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Coryphoideae"}
+# def intronerate(species, path_in, done):
+#     """Intronerate the sequencec from hybpiper."""
+#     inputs = [path_in + species]
+#     outputs = [done]
+#     options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Coryphoideae"}
 
-    spec = """
-    source activate base
+#     spec = """
+#     source activate base
 
-    cd {path_in}
+#     cd {path_in}
 
-    python3 /home/owrisberg/Coryphoideae/github_code/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
+#     python3 /home/owrisberg/Coryphoideae/github_code/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
         
     
-    touch {done}
-    """.format(sp = species, done = done, path_in = path_in)
+#     touch {done}
+#     """.format(sp = species, done = done, path_in = path_in)
 
-    return (inputs, outputs, options, spec)
+#     return (inputs, outputs, options, spec)
 
 # ########################################################################################################################
 # #############################################---- Coverage ----#########################################################
