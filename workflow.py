@@ -240,8 +240,8 @@ for i in range(len(sp)):
 # run Coverage to estimate the significance of the contigs found by hybpiper
 for i in range(0, 10):
     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
-                                                        dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/'
-                                                        dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/'
+                                                        dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
+                                                        dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         all_bam = "_all.bam",
                                                         all_sorted_bam ="_all_sorted.bam",
