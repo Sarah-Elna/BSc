@@ -232,7 +232,7 @@ gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis
 
 # run intronerate
 for i in range(len(sp)):
-    gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
+    gwf.target_from_template('Intronerate_'+str(i), intronerate(species= sp[i],
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
 
