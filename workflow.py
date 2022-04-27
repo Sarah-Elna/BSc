@@ -85,29 +85,53 @@ def stats_summary(path):
     return (inputs, outputs, options, spec)
 
 ########################################################################################################################
+#############################################---- Intronerate ----######################################################
+########################################################################################################################
+
+def intronerate(species, path_in, done):
+    """Intronerate the sequencec from hybpiper."""
+    inputs = [path_in + species]
+    outputs = [done]
+    options = {'cores': 4, 'memory': "20g", 'walltime': "16:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
+
+    cd {path_in}
+
+    python3 /home/sarahe/HybPiper/intronerate.py --prefix {sp} &>> intronerate_out.txt
+        
+    
+    touch {done}
+    """.format(sp = species, done = done, path_in = path_in)
+
+    return (inputs, outputs, options, spec)
+
+########################################################################################################################
 #############################################---- Coverage ----#########################################################
 ########################################################################################################################
-# def coverage(species, path_in, path_out, done, all_bam, all_sorted_bam, all_sorted_bam_bai, bam, cov, fasta, fasta_amb, fasta_ann, fasta_bwt, fasta_pac, fasta_sa, trimmed_fasta, up_bam):
-#     """Calculating coverage of sequences."""
-#     inputs = [path_in + 'seq_lengths.txt', path_in + 'name_list.txt']
-#     outputs = [path_out+species+all_bam, path_out+species+all_sorted_bam, path_out+species+all_sorted_bam_bai, path_out+species+bam,
-#     path_out+species+cov, path_out+species+fasta, path_out+species+fasta_amb, path_out+species+fasta_ann, path_out+species+fasta_bwt,
-#     path_out+species+fasta_pac, path_out+species+fasta_sa, path_out+species+trimmed_fasta, path_out+species+up_bam, done]
-#     options = {'cores': 4, 'memory': "20g", 'walltime': "08:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+def coverage(species, dir_in, dir_out, path_in, path_out, done, all_bam, all_sorted_bam, all_sorted_bam_bai, bam, cov, fasta, fasta_amb, fasta_ann, fasta_bwt, fasta_pac, fasta_sa, trimmed_fasta, up_bam):
+    """Calculating coverage of sequences."""
+    inputs = [path_in + 'seq_lengths.txt', path_in + 'name_list.txt']
+    outputs = [path_out+species+all_bam, path_out+species+all_sorted_bam, path_out+species+all_sorted_bam_bai, path_out+species+bam,
+    path_out+species+cov, path_out+species+fasta, path_out+species+fasta_amb, path_out+species+fasta_ann, path_out+species+fasta_bwt,
+    path_out+species+fasta_pac, path_out+species+fasta_sa, path_out+species+trimmed_fasta, path_out+species+up_bam, done]
+    options = {'cores': 4, 'memory': "20g", 'walltime': "08:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
-#     spec = """
-#     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
-#     source activate base
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
     
-#     cd {path_in}
+    cd {path_in}
 
-#     python3 /home/sarahe/GitHub/BSc/Python_Scripts/coverage_eddit.py {sp}
+    python3 /home/sarahe/GitHub/BSc/Python_Scripts/coverage_eddit.py {sp} {dir_in} {dir_out}
     
-#     touch {done}
+    touch {done}
 
-#     """.format(sp = species, done = done, path_in = path_in)
+    """.format(sp = species, done = done, path_in = path_in, dir_in = dir_in, dir_out = dir_out)
 
-#     return (inputs, outputs, options, spec)
+    return (inputs, outputs, options, spec)
 
 ##########################################################################################################################
 ###########################################---- Retrieve Sequences ----###################################################
@@ -206,26 +230,34 @@ gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dyp
 # get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
 gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
+# run intronerate
+for i in range(len(sp)):
+    gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
+
 ######################################################################################################################################################
-# # run Coverage to estimate the significance of the contigs found by hybpiper
-# for i in range(0, 10):
-#     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-#                                                         all_bam = "_all.bam",
-#                                                         all_sorted_bam ="_all_sorted.bam",
-#                                                         all_sorted_bam_bai="_all_sorted.bam.bai",
-#                                                         bam =".bam",
-#                                                         cov=".cov",
-#                                                         fasta = ".fasta",
-#                                                         fasta_amb = ".fasta.amb",
-#                                                         fasta_ann = ".fasta.ann",
-#                                                         fasta_bwt = ".fasta.bwt",
-#                                                         fasta_pac = ".fasta.pac",
-#                                                         fasta_sa = ".fasta.sa",
-#                                                         trimmed_fasta = "_trimmed.fasta",
-#                                                         up_bam = "_up.bam",
-#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Coverage/"+sp[i]))
+# run Coverage to estimate the significance of the contigs found by hybpiper
+for i in range(0, 10):
+    gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
+                                                        dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/'
+                                                        dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/'
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+                                                        all_bam = "_all.bam",
+                                                        all_sorted_bam ="_all_sorted.bam",
+                                                        all_sorted_bam_bai="_all_sorted.bam.bai",
+                                                        bam =".bam",
+                                                        cov=".cov",
+                                                        fasta = ".fasta",
+                                                        fasta_amb = ".fasta.amb",
+                                                        fasta_ann = ".fasta.ann",
+                                                        fasta_bwt = ".fasta.bwt",
+                                                        fasta_pac = ".fasta.pac",
+                                                        fasta_sa = ".fasta.sa",
+                                                        trimmed_fasta = "_trimmed.fasta",
+                                                        up_bam = "_up.bam",
+                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Coverage/"+sp[i]))
 
 #genes = ["gene00"]
 #gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
