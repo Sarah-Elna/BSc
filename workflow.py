@@ -29,7 +29,7 @@ def hybpiper(species, p1, p2, un, path_out, path_in, done):
 
     cd {out}
 
-    /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file3.fasta --prefix {species} --bwa
+    /home/sarahe/HybPiper/reads_first.py --cpu 16 --readfiles {p1} {p2} --unpaired {un} -b /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file4.fasta --prefix {species} --bwa
     mkdir -p done
     cd done
     touch {species}
@@ -64,7 +64,7 @@ def seq_lenghts(path):
 
     spec = """
     cd /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper
-    python /home/sarahe/HybPiper/get_seq_lengths.py /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file3.fasta {path}name_list.txt dna > {path}seq_lengths.txt
+    python /home/sarahe/HybPiper/get_seq_lengths.py /home/sarahe/GitHub/BSc/Target_filer/Renamed_Target_file4.fasta {path}name_list.txt dna > {path}seq_lengths.txt
     """.format(path = path)
 
     return (inputs, outputs, options, spec)
@@ -206,6 +206,7 @@ gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dyp
 # get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
 gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
+######################################################################################################################################################
 # # run Coverage to estimate the significance of the contigs found by hybpiper
 # for i in range(0, 10):
 #     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],

@@ -14,8 +14,8 @@ percent.len=sweep(sample.len,2,as.numeric(reference.len),'/')
 percent.len = ifelse(percent.len>1,1,percent.len)
 
 #Plot the heatmap
-heatmap.2(percent.len, Rowv=FALSE, Colv=FALSE, dendrogram= c('none'),
-          cexCol=100/dim(percent.len)[2], cexRow=20/dim(percent.len)[1],
+heatmap.2(percent.len, Rowv=TRUE, Colv=TRUE, dendrogram= c('none'),
+          cexCol=100/dim(percent.len)[2], cexRow=200/dim(percent.len)[1],
           density.info=c('none'), # options of different plots to be drawn in colour key
           trace='none', # character string indicating whether a solid "trace" line should be drawn across 'row's or down 'column's, 'both' or 'none'.
           #margins=c(10,5),
