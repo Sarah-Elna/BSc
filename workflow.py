@@ -231,33 +231,33 @@ sp = read_csv(rename, ';')
 # gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
 # run intronerate
-for i in range(len(sp)):
+for i in range(0, 10):
     gwf.target_from_template('Intronerate_'+str(i), intronerate(species= sp[i],
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
 
 ######################################################################################################################################################
 # run Coverage to estimate the significance of the contigs found by hybpiper
-for i in range(0, 10):
-    gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
-                                                        dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
-                                                        dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
-                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-                                                        all_bam = "_all.bam",
-                                                        all_sorted_bam ="_all_sorted.bam",
-                                                        all_sorted_bam_bai="_all_sorted.bam.bai",
-                                                        bam =".bam",
-                                                        cov=".cov",
-                                                        fasta = ".fasta",
-                                                        fasta_amb = ".fasta.amb",
-                                                        fasta_ann = ".fasta.ann",
-                                                        fasta_bwt = ".fasta.bwt",
-                                                        fasta_pac = ".fasta.pac",
-                                                        fasta_sa = ".fasta.sa",
-                                                        trimmed_fasta = "_trimmed.fasta",
-                                                        up_bam = "_up.bam",
-                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Coverage/"+sp[i]))
+# for i in range(0, 10):
+#     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
+#                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
+#                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
+#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+#                                                         all_bam = "_all.bam",
+#                                                         all_sorted_bam ="_all_sorted.bam",
+#                                                         all_sorted_bam_bai="_all_sorted.bam.bai",
+#                                                         bam =".bam",
+#                                                         cov=".cov",
+#                                                         fasta = ".fasta",
+#                                                         fasta_amb = ".fasta.amb",
+#                                                         fasta_ann = ".fasta.ann",
+#                                                         fasta_bwt = ".fasta.bwt",
+#                                                         fasta_pac = ".fasta.pac",
+#                                                         fasta_sa = ".fasta.sa",
+#                                                         trimmed_fasta = "_trimmed.fasta",
+#                                                         up_bam = "_up.bam",
+#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/",
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Coverage/"+sp[i]))
 
 #genes = ["gene00"]
 #gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
