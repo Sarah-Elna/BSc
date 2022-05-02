@@ -43,39 +43,39 @@ with open(directory_out+sample+'.fasta', "w") as outfile:
 print(sample+'.fasta generated')
 	
 # BWA index targets
-cmd = 'bwa index'+directory_out+sample+'.fasta'
+cmd = 'bwa index '+directory_out+sample+'.fasta'
 subprocess.call(cmd,shell=True)
 print(sample+'.fasta indexed')
 
 # BWA mem paired reads
-cmd = 'bwa mem'+directory_out+sample+'.fasta'+directory_in+sample+'_clean-Read1.fastq'+directory_in+sample+'_clean-Read2.fastq | samtools view -b -o'+directory_out+sample+'.bam'
+cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read1.fastq '+directory_in+sample+'_clean-Read2.fastq | samtools view -b -o '+directory_out+sample+'.bam'
 subprocess.call(cmd,shell=True)
 print('paired reads mapped to '+sample+'.fasta')
 
 # BWA mem unpaired reads
-cmd = 'bwa mem'+directory_out+sample+'.fasta'+directory_in+sample+'_clean-Read12-single.fastq | samtools view -b -o'+directory_out+sample+'_up.bam'
+cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read12-single.fastq | samtools view -b -o '+directory_out+sample+'_up.bam'
 subprocess.call(cmd,shell=True)
 print('unpaired reads mapped to '+sample+'.fasta')
 
 # merge BAM files
-cmd = 'samtools merge -f'+directory_out+sample+'_all.bam'+directory_out+sample+'.bam'+directory_out+sample+'_up.bam'
+cmd = 'samtools merge -f '+directory_out+sample+'_all.bam '+directory_out+sample+'.bam '+directory_out+sample+'_up.bam'
 subprocess.call(cmd,shell=True)
 print('BAMs merged')
 
 # sort and index BAM files
-cmd = 'samtools sort'+directory_out+sample+'_all.bam -o'+directory_out+sample+'_all_sorted.bam'
+cmd = 'samtools sort '+directory_out+sample+'_all.bam -o '+directory_out+sample+'_all_sorted.bam'
 subprocess.call(cmd,shell=True)
-cmd = 'samtools index'+directory_out+sample+'_all_sorted.bam'
+cmd = 'samtools index '+directory_out+sample+'_all_sorted.bam'
 subprocess.call(cmd,shell=True)
 print('BAM indexed and sorted')
 
 # remove duplicates
-cmd = 'picard MarkDuplicates I='+directory_out+sample+'_all_sorted.bam O='+directory_out+sample+'_all_sorted_deduplicated.bam M='+directory_out+sample+'marked_dup_metrics.txt REMOVE_DUPLICATES=true'
+cmd = 'picard MarkDuplicates I='+directory_out+sample+'_all_sorted.bam O='+directory_out+sample+'_all_sorted_deduplicated.bam M='+directory_out+sample+' marked_dup_metrics.txt REMOVE_DUPLICATES=true'
 subprocess.call(cmd,shell=True)
 print('reads deduplicated for sample '+sample)
 
 # calculate coverage
-cmd = 'samtools depth'+directory_out+sample+'_all_sorted_deduplicated.bam >'+directory_out+sample+'.cov'
+cmd = 'samtools depth '+directory_out+sample+'_all_sorted_deduplicated.bam > '+directory_out+sample+'.cov'
 print('coverage calculated for sample '+sample)
 
 # define function to replace nth position of sequence with N
