@@ -237,7 +237,7 @@ sp = read_csv(rename, ';')
 #                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
 
 ######################################################################################################################################################
-run Coverage to estimate the significance of the contigs found by hybpiper
+# run Coverage to estimate the significance of the contigs found by hybpiper
 for i in range(0, len(sp)):
     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
