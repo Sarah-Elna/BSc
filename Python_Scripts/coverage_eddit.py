@@ -17,8 +17,8 @@ parser.add_argument("directory_in")
 parser.add_argument("directory_out")
 args = parser.parse_args()
 sample = str(args.sample)
-directory_in = str(directory_in)
-directory_out = str(directory_out)
+directory_in = str(args.directory_in)
+directory_out = str(args.directory_out)
 
 # depth required to KEEP (i.e. anything <trshld will be discarded)
 trshld = 2
