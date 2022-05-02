@@ -85,7 +85,7 @@ def n2N(sqnc, pstn):
 	return "".join(sqnc)
 
 # process coverage
-with open(+directory_out+sample+'.cov', "r") as covfile:
+with open(directory_out+sample+'.cov', "r") as covfile:
 	for line in covfile:
 		line = line.strip()
 		LINE = line.split("\t")
