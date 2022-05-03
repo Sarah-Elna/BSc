@@ -27,6 +27,7 @@ trshld = 2
 
 # Go to working directory
 cmd = 'cd '+directory_wrk
+subprocess.call(cmd,shell=True)
 
 # Get all subdirectories in the current working directory. these are the loci recovered by hybpiper
 loci = next(os.walk(sample))[1]
