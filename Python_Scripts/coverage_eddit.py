@@ -15,13 +15,18 @@ parser = argparse.ArgumentParser()
 parser.add_argument("sample")
 parser.add_argument("directory_in")
 parser.add_argument("directory_out")
+parser.add_argument("directory_wrk")
 args = parser.parse_args()
 sample = str(args.sample)
 directory_in = str(args.directory_in)
 directory_out = str(args.directory_out)
+directory_wrk = str(args.directory_wrk)
 
 # depth required to KEEP (i.e. anything <trshld will be discarded)
 trshld = 2
+
+# Go to working directory
+cmd = 'cd '+directory_wrk
 
 # Get all subdirectories in the current working directory. these are the loci recovered by hybpiper
 loci = next(os.walk(sample))[1]

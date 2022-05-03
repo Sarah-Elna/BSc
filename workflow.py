@@ -111,7 +111,7 @@ def intronerate(species, path_in, done):
 ########################################################################################################################
 #############################################---- Coverage ----#########################################################
 ########################################################################################################################
-def coverage(species, dir_in, dir_out, path_in, path_out, done, all_bam, all_sorted_bam, all_sorted_bam_bai, bam, cov, fasta, fasta_amb, fasta_ann, fasta_bwt, fasta_pac, fasta_sa, trimmed_fasta, up_bam):
+def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam, all_sorted_bam, all_sorted_bam_bai, bam, cov, fasta, fasta_amb, fasta_ann, fasta_bwt, fasta_pac, fasta_sa, trimmed_fasta, up_bam):
     """Calculating coverage of sequences."""
     inputs = [path_in + 'seq_lengths.txt', path_in + 'name_list.txt']
     outputs = [path_out+species+all_bam, path_out+species+all_sorted_bam, path_out+species+all_sorted_bam_bai, path_out+species+bam,
@@ -125,11 +125,11 @@ def coverage(species, dir_in, dir_out, path_in, path_out, done, all_bam, all_sor
     
     cd {path_in}
 
-    python3 /home/sarahe/GitHub/BSc/Python_Scripts/coverage_eddit.py {sp} {dir_in} {dir_out}
+    python3 /home/sarahe/GitHub/BSc/Python_Scripts/coverage_eddit.py {sp} {dir_in} {dir_out} {dir_wrk}
     
     touch {done}
 
-    """.format(sp = species, done = done, path_in = path_in, dir_in = dir_in, dir_out = dir_out)
+    """.format(sp = species, done = done, path_in = path_in, dir_in = dir_in, dir_out = dir_out, dir_wrk = dir_wrk)
 
     return (inputs, outputs, options, spec)
 
@@ -242,6 +242,7 @@ for i in range(0, 10):
     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
+                                                        dir_wrk = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/',
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         all_bam = "_all.bam",
                                                         all_sorted_bam ="_all_sorted.bam",
