@@ -35,71 +35,71 @@ with open('/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta',
 
 print(sample+'.fasta generated')
 	
-# BWA index targets
-cmd = 'bwa index /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta'
-subprocess.call(cmd,shell=True)
-print(sample+'.fasta indexed')
+# # BWA index targets
+# cmd = 'bwa index /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta'
+# subprocess.call(cmd,shell=True)
+# print(sample+'.fasta indexed')
 
-# BWA mem paired reads
-cmd = 'bwa mem /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta /home/owrisberg/Coryphoideae/work_flow/02_trimmed/'+sample+'_1P.fastq /home/owrisberg/Coryphoideae/work_flow/02_trimmed/'+sample+'_2P.fastq | samtools view -b -o /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.bam'
-subprocess.call(cmd,shell=True)
-print('paired reads mapped to '+sample+'.fasta')
+# # BWA mem paired reads
+# cmd = 'bwa mem /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta /home/owrisberg/Coryphoideae/work_flow/02_trimmed/'+sample+'_1P.fastq /home/owrisberg/Coryphoideae/work_flow/02_trimmed/'+sample+'_2P.fastq | samtools view -b -o /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.bam'
+# subprocess.call(cmd,shell=True)
+# print('paired reads mapped to '+sample+'.fasta')
 
-# BWA mem unpaired reads
-cmd = 'bwa mem /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta /home/owrisberg/Coryphoideae/work_flow/02_trimmed/'+sample+'_UN.fastq | samtools view -b -o /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_up.bam'
-subprocess.call(cmd,shell=True)
-print('unpaired reads mapped to '+sample+'.fasta')
+# # BWA mem unpaired reads
+# cmd = 'bwa mem /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.fasta /home/owrisberg/Coryphoideae/work_flow/02_trimmed/'+sample+'_UN.fastq | samtools view -b -o /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_up.bam'
+# subprocess.call(cmd,shell=True)
+# print('unpaired reads mapped to '+sample+'.fasta')
 
-# merge BAM files
-cmd = 'samtools merge -f /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all.bam /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.bam /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_up.bam'
-subprocess.call(cmd,shell=True)
-print('BAMs merged')
+# # merge BAM files
+# cmd = 'samtools merge -f /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all.bam /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.bam /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_up.bam'
+# subprocess.call(cmd,shell=True)
+# print('BAMs merged')
 
-# sort and index BAM files
-cmd = 'samtools sort /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all.bam -o /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted.bam'
-subprocess.call(cmd,shell=True)
-cmd = 'samtools index /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted.bam'
-subprocess.call(cmd,shell=True)
-print('BAM indexed and sorted')
+# # sort and index BAM files
+# cmd = 'samtools sort /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all.bam -o /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted.bam'
+# subprocess.call(cmd,shell=True)
+# cmd = 'samtools index /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted.bam'
+# subprocess.call(cmd,shell=True)
+# print('BAM indexed and sorted')
 
-# remove duplicates
-cmd = 'picard MarkDuplicates I=/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted.bam O=/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted_deduplicated.bam M=/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'marked_dup_metrics.txt REMOVE_DUPLICATES=true'
-subprocess.call(cmd,shell=True)
-print('reads deduplicated for sample '+sample)
+# # remove duplicates
+# cmd = 'picard MarkDuplicates I=/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted.bam O=/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted_deduplicated.bam M=/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'marked_dup_metrics.txt REMOVE_DUPLICATES=true'
+# subprocess.call(cmd,shell=True)
+# print('reads deduplicated for sample '+sample)
 
-# calculate coverage
-cmd = 'samtools depth /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted_deduplicated.bam > /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.cov'
-subprocess.call(cmd,shell=True)
-print('coverage calculated for sample '+sample)
+# # calculate coverage
+# cmd = 'samtools depth /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_all_sorted_deduplicated.bam > /home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.cov'
+# subprocess.call(cmd,shell=True)
+# print('coverage calculated for sample '+sample)
 
-# define function to replace nth position of sequence with N
-def n2N(sqnc, pstn):
-	sqnc = list(sqnc)
-	sqnc[int(pstn)-1] = "N"
-	return "".join(sqnc)
+# # define function to replace nth position of sequence with N
+# def n2N(sqnc, pstn):
+# 	sqnc = list(sqnc)
+# 	sqnc[int(pstn)-1] = "N"
+# 	return "".join(sqnc)
 
-# process coverage
-with open('/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.cov', "r") as covfile:
-	for line in covfile:
-		line = line.strip()
-		LINE = line.split("\t")
-		if int(LINE[2]) < trshld:
-			sequences[LINE[0]].seq = n2N(sequences[LINE[0]].seq,LINE[1])
+# # process coverage
+# with open('/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'.cov', "r") as covfile:
+# 	for line in covfile:
+# 		line = line.strip()
+# 		LINE = line.split("\t")
+# 		if int(LINE[2]) < trshld:
+# 			sequences[LINE[0]].seq = n2N(sequences[LINE[0]].seq,LINE[1])
 
-# remove unnecessary leading and trailing Ns
-for nm in sequences.keys():
-	sequences[nm].seq = sequences[nm].seq.strip("N")
-	if isinstance(sequences[nm].seq, str):
-		sequences[nm].seq = Seq(sequences[nm].seq)
+# # remove unnecessary leading and trailing Ns
+# for nm in sequences.keys():
+# 	sequences[nm].seq = sequences[nm].seq.strip("N")
+# 	if isinstance(sequences[nm].seq, str):
+# 		sequences[nm].seq = Seq(sequences[nm].seq)
 
-print('coverage trimming completed, keeping only positions with coverage of '+str(trshld)+' or above')
+# print('coverage trimming completed, keeping only positions with coverage of '+str(trshld)+' or above')
 
-# write outfile
-with open('/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_trimmed.fasta', "w") as outfile:
-	SeqIO.write(list(sequences.values()), outfile, "fasta")
-print('trimmed seqs written to '+sample+'_trimmed.fasta')
+# # write outfile
+# with open('/home/owrisberg/Coryphoideae/work_flow/04_coverage/'+sample+'_trimmed.fasta', "w") as outfile:
+# 	SeqIO.write(list(sequences.values()), outfile, "fasta")
+# print('trimmed seqs written to '+sample+'_trimmed.fasta')
 
-# remove unnecessary files
-#cmd = "find ../coverage -type f ! -name '*.fasta' -delete"
-#subprocess.call(cmd, shell=True)
-#print('tidied up.')
+# # remove unnecessary files
+# #cmd = "find ../coverage -type f ! -name '*.fasta' -delete"
+# #subprocess.call(cmd, shell=True)
+# #print('tidied up.')
