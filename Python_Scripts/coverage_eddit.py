@@ -70,7 +70,7 @@ subprocess.call(cmd,shell=True)
 print('BAM indexed and sorted')
 
 # remove duplicates
-cmd = 'picard MarkDuplicates I='+directory_out+sample+'_all_sorted.bam O='+directory_out+sample+'_all_sorted_deduplicated.bam M='+directory_out+sample+' marked_dup_metrics.txt REMOVE_DUPLICATES=true'
+cmd = 'picard MarkDuplicates I='+directory_out+sample+'_all_sorted.bam O='+directory_out+sample+'_all_sorted_deduplicated.bam M='+directory_out+sample+'_marked_dup_metrics.txt REMOVE_DUPLICATES=true'
 subprocess.call(cmd,shell=True)
 print('reads deduplicated for sample '+sample)
 
