@@ -238,7 +238,7 @@ sp = read_csv(rename, ';')
 
 ######################################################################################################################################################
 # run Coverage to estimate the significance of the contigs found by hybpiper
-for i in range(0, 10):
+for i in range(0, len(sp)):
     gwf.target_from_template('Coverage_'+str(i), coverage(species = sp[i],
                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
