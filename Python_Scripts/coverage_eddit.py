@@ -58,7 +58,7 @@ cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read
 subprocess.call(cmd,shell=True)
 print('paired reads mapped to '+sample+'.fasta')
 
-# BWA mem unpaired reads and @HD tag
+# BWA mem unpaired reads
 cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read12-single.fastq | samtools view -b -h -o '+directory_out+sample+'_no_up.bam'
 subprocess.call(cmd,shell=True)
 print('unpaired reads mapped to '+sample+'.fasta')
