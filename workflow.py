@@ -120,8 +120,7 @@ def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam
     options = {'cores': 4, 'memory': "20g", 'walltime': "08:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
-    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
-    source activate base
+    conda activate base_2
     
     cd {path_in}
 
