@@ -54,12 +54,12 @@ subprocess.call(cmd,shell=True)
 print(sample+'.fasta indexed')
 
 # BWA mem paired reads and @HD tag
-cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read1.fastq '+directory_in+sample+'_clean-Read2.fastq | samtools view -b -h -o '+directory_out+sample+'_no.bam | bam polishbam --HD -in '+directory_out+sample+'_no.bam -out '+directory_out+sample+'.bam'
+cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read1.fastq '+directory_in+sample+'_clean-Read2.fastq | samtools view -b -h -o '+directory_out+sample+'_no.bam | bam polishbam --HD --in '+directory_out+sample+'_no.bam --out '+directory_out+sample+'.bam'
 subprocess.call(cmd,shell=True)
 print('paired reads mapped to '+sample+'.fasta')
 
 # BWA mem unpaired reads and @HD tag
-cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read12-single.fastq | samtools view -b -h -o '+directory_out+sample+'_no_up.bam | bam polishbam --HD -in '+directory_out+sample+'_no_up.bam -out '+directory_out+sample+'_up.bam'
+cmd = 'bwa mem '+directory_out+sample+'.fasta '+directory_in+sample+'_clean-Read12-single.fastq | samtools view -b -h -o '+directory_out+sample+'_no_up.bam | bam polishbam --HD --in '+directory_out+sample+'_no_up.bam --out '+directory_out+sample+'_up.bam'
 subprocess.call(cmd,shell=True)
 print('unpaired reads mapped to '+sample+'.fasta')
 
