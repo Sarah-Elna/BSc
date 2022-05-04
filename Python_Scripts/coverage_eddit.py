@@ -89,6 +89,7 @@ print('reads deduplicated for sample '+sample)
 
 # calculate coverage
 cmd = 'samtools depth '+directory_out+sample+'_all_sorted_deduplicated.bam > '+directory_out+sample+'.cov'
+subprocess.call(cmd,shell=True)
 print('coverage calculated for sample '+sample)
 
 # define function to replace nth position of sequence with N
