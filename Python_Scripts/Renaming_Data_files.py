@@ -19,6 +19,8 @@ csv_file = str(args.csv_file)
 path_in = str(args.path_in)
 path_out = str(args.path_out)
 
+rows = []
+
 with open(csv_file, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=';')
     for row in csvreader:
