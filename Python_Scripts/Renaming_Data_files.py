@@ -27,15 +27,31 @@ for row in csvreader:
     rows.append(row)
 file.close()
 
-print(rows)
+old_names = []
+new_names = []
+
+for row in rows:
+    csv_index = []
+    for r in range(0, len(row)):
+        if row[r] == ';':
+            csv_index.append(r)
+    first_cs = csv_index[0]
+    second_cs = csv_index[1]
+    old_name = row[0:first_cs]
+    old_names.append(old_name)
+    new_name = row[first_cs+1:second_cs]
+    new_names.append(new_name)
+
+print(old_names)
+print(new_names)
 
 endings = ["_clean-Read12-single.fastq", "_clean-Read1.fastq", "_clean-Read1-single.fastq", "_clean-Read2.fastq", "_clean-Read2-single.fastq"]
 
-for i in range(0, len(rows)):
-    for j in range(0, len(endings)):
+# for i in range(0, len(rows)):
+#     for j in range(0, len(endings)):
 
-        old_file_name = rows[i][0] + endings[j]
-        new_file_name = rows[i][1] + endings[j]
+#         old_file_name = rows[i][0] + endings[j]
+#         new_file_name = rows[i][1] + endings[j]
  
-        cmd = 'mv '+path_in+old_file_name+' '+path_out+new_file_name
-        subprocess.call(cmd,shell=True)
+#         cmd = 'mv '+path_in+old_file_name+' '+path_out+new_file_name
+#         subprocess.call(cmd,shell=True)
