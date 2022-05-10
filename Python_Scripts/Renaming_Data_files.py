@@ -36,6 +36,6 @@ for i in range(0, len(rows)):
 
         old_file_name = rows[i][0] + endings[j]
         new_file_name = rows[i][1] + endings[j]
-
+ 
         cmd = 'mv '+path_in+old_file_name+' '+path_out+new_file_name
         subprocess.call(cmd,shell=True)
