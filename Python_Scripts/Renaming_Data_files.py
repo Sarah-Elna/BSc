@@ -20,7 +20,7 @@ path_in = str(args.path_in)
 path_out = str(args.path_out)
 
 with open(csv_file, newline='') as csvfile:
-    csvreader = csv.reader(csvfile. delimiter=';')
+    csvreader = csv.reader(csvfile, delimiter=';')
     for row in csvreader:
         rows.append(row)
 
