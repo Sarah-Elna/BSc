@@ -27,6 +27,8 @@ for row in csvreader:
     rows.append(row)
 file.close()
 
+print(rows)
+
 endings = ["_clean-Read12-single.fastq", "_clean-Read1.fastq", "_clean-Read1-single.fastq", "_clean-Read2.fastq", "_clean-Read2-single.fastq"]
 
 for i in range(0, len(rows)):
