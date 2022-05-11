@@ -196,7 +196,7 @@ def read_csv(file_name, file_delimiter):
     with open(file_name) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=file_delimiter)
         for row in csv_reader:
-            file_path = ("/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/"+str(row[0])+"_clean-Read1.fastq")
+            file_path = ("/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/"+str(row[1])+"_clean-Read1.fastq")
             isFile = os.path.isfile(file_path)
             if (isFile == True) and row[0] not in name_list:
                 name_list.append(row[0])
