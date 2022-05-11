@@ -198,7 +198,7 @@ def read_csv(file_name, file_delimiter):
         for row in csv_reader:
             file_path = ("/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/"+str(row[1])+"_clean-Read1.fastq")
             isFile = os.path.isfile(file_path)
-            if (isFile == True) and row[1] not in name_list:
+            if (isFile == True) and row[1] not in name_list and row[1] != "ID":
                 name_list.append(row[1])
             else:
                 print('could not find' + file_path)
