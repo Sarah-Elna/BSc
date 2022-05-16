@@ -210,7 +210,7 @@ sp = read_csv(rename, ';')
 #print(sp)
 
 # run hybpiper
-for i in range(9, 11):
+for i in range(0, len(sp)):
     gwf.target_from_template('hybpiper_'+sp[i], hybpiper(species = sp[i],
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
@@ -219,21 +219,21 @@ for i in range(9, 11):
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
 
-# #get name list from hybpiper run
-# gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
-#                                                     name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
+#get name list from hybpiper run
+gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
+                                                    name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
 
-# #get sequence length file necessary for statistical summary
-# gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
+#get sequence length file necessary for statistical summary
+gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
 
-# #get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
-# gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
+#get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
+gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
-# #run intronerate
-# for i in range(0, len(sp)):
-#     gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
+#run intronerate
+for i in range(0, len(sp)):
+    gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
 
 # #run Coverage to estimate the significance of the contigs found by hybpiper
 # for i in range(0, len(sp)):
