@@ -137,10 +137,10 @@ def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam
 ###########################################---- Retrieve Sequences ----###################################################
 ##########################################################################################################################
 
-#def retrieve(path_in):
+#def retrieve(path_in, sp):
 #    """Retrieve gene sequences from all the species and create an unaligned multifasta for each gene."""
-#    inputs = [#! Coverage output]
-#    outputs = ["#!/home/owrisberg/Coryphoideae/work_flow/04_coverage/done/Retrieve_Genes/Retrieve_all_done.txt"]
+#    inputs = [path_in + 'done/Coverage/'+sp+'_trimmed.fasta']
+#    outputs = [path_in + 'done/Retrieve_Genes/Retrieve_all_done.txt']
 #    options = {'cores': 10, 'memory': "20g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
 #    spec = """
@@ -151,9 +151,9 @@ def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam
 
 #    ls *trimmed.fasta > filelist.txt
 
-#    python #!/home/owrisberg/Coryphoideae/github_code/coryphoideae_species_tree/samples2genes.py > outstats.csv
+#    python /home/sarahe/GitHub/BSc/Python_Scripts/samples2genes.py > /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/outstats.csv
 
-#    touch #!/home/owrisberg/Coryphoideae/work_flow/04_coverage/done/Retrieve_Genes/Retrieve_all_done.txt
+#    touch /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt
 
 #    """.format(path_in = path_in)
 
@@ -257,15 +257,11 @@ for i in range(0, len(sp)):
                                                         up_bam = "_up.bam",
                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/",
                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Coverage/"+sp[i]))
-###############################################################################################################################
-#genes = ["gene00"]
-#gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
+# Define genes
+genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK', 'ndhA', 'ndhB', 'ndhC', 'ndhD', 'ndhF', 'ndhG', 'ndhH', 'ndhI', 'ndhJ', 'petA', 'petB', 'petD', 'petL', 'petN', 'psaA', 'psaB', 'psaC', 'psaI', 'psbA', 'psbB', 'psbC', 'psbD', 'psbK', 'psbL', 'psbZ', 'psI', 'rbcL', 'rpl16', 'rpl2', 'rpl22', 'rpl23', 'rpl32', 'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11', 'rps12', 'rps15', 'rps16', 'rps18', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8', 'rrn16', 'rrn23', 'rrn4,5', 'rrn5', 'rrn5 Dio', 'trnA', 'trnC', 'trnD', 'trnfM', 'trnG', 'trnH', 'trnI', 'trnK', 'trnL', 'trnN', 'trnP', 'trnQ', 'trnS', 'trnT', 'trnV', 'ycf1', 'ycf2', 'ycf3', 'ycf4', 'ycl2']
 
-#gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))
+# Define gt values
+gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
 
-
-#for i in range(len(genes)):
-#    gwf.target_from_template('Mafft_'+genes[i], mafft(gene = genes[i],
-#                                                        path_out= #!"/home/owrisberg/Coryphoideae/work_flow/06_alignment/",
-#                                                        path_in = #!"/home/owrisberg/Coryphoideae/work_flow/05_blacklisting/",
-#                                                        done = #!"/home/owrisberg/Coryphoideae/work_flow/06_alignment/done/"+genes[i]))
+# Retrieve sequences and sort into files with gene names
+gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))

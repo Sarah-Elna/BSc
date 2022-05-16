@@ -1,6 +1,6 @@
 '''
 ------------------------------------------------------------------------------------------------------------------------
-This workflow is used in a Workflow to estimate coverage. 
+This script is used in a Workflow to estimate coverage. 
 ------------------------------------------------------------------------------------------------------------------------
 This code is a variant of coverage.py by Wolf Eiserhardt
 Eddited by Sarah E.K. Kessel 
