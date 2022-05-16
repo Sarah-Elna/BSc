@@ -210,7 +210,7 @@ sp = read_csv(rename, ';')
 #print(sp)
 
 # run hybpiper
-for i in range(10, 11):
+for i in range(10, 12):
     gwf.target_from_template('hybpiper_'+sp[i], hybpiper(species = sp[i],
                                                         p1 = "_clean-Read1.fastq",
                                                         p2 = "_clean-Read2.fastq",
