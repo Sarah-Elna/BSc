@@ -3,7 +3,7 @@
 This workflow is used to run HybPiper on GenomeDK to find chloroplast DNA in the data. 
 ------------------------------------------------------------------------------------------------------------------------
 This code is a variant of oscar_eksempel_species_workflow.py by Oscar Wrisberg
-Eddited by Sarah E.K. Kessel 
+Eddited by Sarah E. Valentin
 ------------------------------------------------------------------------------------------------------------------------
 '''
 

@@ -3,6 +3,7 @@
 This script is used in a Workflow to Retrieve gene sequences from all the species and create an unaligned multifasta for each gene.
 ------------------------------------------------------------------------------------------------------------------------
 This code is from a script by the same name by Wolf Eiserhardt
+Eddited by Sarah E. Valentin
 ------------------------------------------------------------------------------------------------------------------------
 '''
 
@@ -59,6 +60,6 @@ for gene, seq_set in genes.items():
 	seq_set_keep = [seq for length, seq in zip(lens, seq_set) if length>thres]
 	# write out if more than 3 sequences
 	if len(seq_set_keep) > 3:
-		with open('../05_blacklisting/'+gene+'.FNA', "w") as outfile:
+		with open('../03_blacklisting/'+gene+'.FNA', "w") as outfile:
 			SeqIO.write(seq_set_keep, outfile, "fasta")
 	print(gene+';'+str(round(median(lens)))+';'+str(len(seq_set))+';'+str(len(seq_set_keep))+';'+str(round(thres)))
