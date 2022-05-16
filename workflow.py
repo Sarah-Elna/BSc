@@ -230,7 +230,7 @@ sp = read_csv(rename, ';')
 # gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
 #run intronerate
-for i in [41, 65, 102]:
+for i in [42, 66, 103]:
     gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
