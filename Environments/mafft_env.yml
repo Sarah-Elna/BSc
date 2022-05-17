@@ -1,0 +1,16 @@
+name: mafft_env
+channels:
+  - gwforg
+  - genomedk
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_gnu
+  - libgcc-ng=9.3.0=h2828fa1_19
+  - libgomp=9.3.0=h2828fa1_19
+  - mafft=7.475=h779adbc_1
+  - parallel=20210422=ha770c72_0
+  - perl=5.26.2=h14c3975_7
+prefix: /home/owrisberg/miniconda3/envs/mafft_env
