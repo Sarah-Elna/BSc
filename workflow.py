@@ -230,10 +230,10 @@ gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dyp
 gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
 
 # run intronerate
-for i in range(0, len(sp)):
-    gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
-                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
+# for i in range(0, len(sp)):
+#     gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
+#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
 for i in range(0, len(sp)):
