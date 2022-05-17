@@ -209,15 +209,15 @@ rename = "/home/sarahe/GitHub/BSc/Renaming_csv_files/Rename_00_data_files.csv"
 sp = read_csv(rename, ';')
 #print(sp)
 
-# # run hybpiper
-# for i in range(0, len(sp)):
-#     gwf.target_from_template('hybpiper_'+sp[i], hybpiper(species = sp[i],
-#                                                         p1 = "_clean-Read1.fastq",
-#                                                         p2 = "_clean-Read2.fastq",
-#                                                         un = "_clean-Read12-single.fastq",
-#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
+# run hybpiper
+for i in range(0, len(sp)):
+    gwf.target_from_template('hybpiper_'+sp[i], hybpiper(species = sp[i],
+                                                        p1 = "_clean-Read1.fastq",
+                                                        p2 = "_clean-Read2.fastq",
+                                                        un = "_clean-Read12-single.fastq",
+                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
 
 #get name list from hybpiper run
 gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
