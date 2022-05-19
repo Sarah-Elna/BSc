@@ -263,12 +263,12 @@ genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK',
 # Define gt values
 gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
 
-# Retrieve sequences and sort into files with gene names
-gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))
+# # Retrieve sequences and sort into files with gene names
+#gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))
 
 # Running MAFFT
-# for i in range(len(genes)):
-#     gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
-#                                                         path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/",
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/done/"+genes[i]))
+for i in range(len(genes)):
+    gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
+                                                        path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/",
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/done/"+genes[i]))
