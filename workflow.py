@@ -269,8 +269,8 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 # Running MAFFT
 for i in range(len(genes)):
     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/"+genes[i]+'.FNA'
-	if os.path.isfile(pth):
+    if os.path.isfile(pth):
         gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
-                                                        path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/",
-                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/done/"+genes[i]))
+        path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/",
+        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
+        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/done/"+genes[i]))
