@@ -187,7 +187,7 @@ def mafft(gene, path_in, path_out, done):
 ###############################################---- Trim ----#############################################################
 ##########################################################################################################################
 
-def trim(path_python, path_in, gene, path_out, done):
+def trim(path_python, path_in, path_out, done):
     """Trim the mafft files"""
     inputs = [path_in+gene]
     outputs = [done, path_out+gene+'_concat.fasta'] 
@@ -203,7 +203,7 @@ def trim(path_python, path_in, gene, path_out, done):
 
     touch {done}
 
-    """.format(path_python = path_python, path_in = path_in, gene = gene, path_out = path_out, done = done)
+    """.format(path_python = path_python, path_in = path_in, path_out = path_out, done = done)
 
     return (inputs, outputs, options, spec)
 
