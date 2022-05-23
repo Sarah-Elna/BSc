@@ -304,3 +304,5 @@ gwf.target_from_template('Trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast
                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
                                         path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/concatenate_done"))
+
+# After running Trim, you must look at the gwf logs Trim and create part.txt manually, and transfer the information about the alignment regions start and end to part.txt
