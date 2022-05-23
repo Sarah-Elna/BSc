@@ -183,6 +183,24 @@ def mafft(gene, path_in, path_out, done):
 
    return (inputs, outputs, options, spec)
 
+##########################################################################################################################
+###############################################---- Trim ----#############################################################
+##########################################################################################################################
+
+# def mafft(gene, path_in, path_out, done):
+#    """Trim the mafft files"""
+#    inputs = []
+#    outputs = [done,path_out+gene+"_aligned.fasta"] 
+#    options = {'cores': 1, 'memory': "500g", 'walltime': "5:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+
+#    spec = """
+
+#    python ConcatFasta.py --files *.fasta --dir . --outfile concat1.fasta --part
+
+#    """.format()
+
+#    return (inputs, outputs, options, spec)
+
 ########################################################################################################################
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
@@ -271,6 +289,6 @@ for i in range(len(genes)):
     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/"+genes[i]+'.FNA'
     if os.path.isfile(pth):
         gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
-        path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/",
+        path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
-        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_done/done/"+genes[i]))
+        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
