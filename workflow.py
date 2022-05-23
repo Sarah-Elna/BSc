@@ -167,7 +167,7 @@ def mafft(gene, path_in, path_out, done):
    """Aligning all the sequences for each gene."""
    inputs = ["/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt", path_in+gene+".FNA"]
    outputs = [done,path_out+gene+"_aligned.fasta"] 
-   options = {'cores': 1, 'memory': "500g", 'walltime': "48:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+   options = {'cores': 1, 'memory': "500g", 'walltime': "10:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
    spec = """
 
