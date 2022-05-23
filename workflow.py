@@ -199,7 +199,7 @@ def trim(path_python, path_in, path_out, path_run, done):
 
     cd {path_run}
 
-    python {path_python}ConcatFasta.py --files *.fasta --dir . --outfile concat1.fasta --part
+    python {path_python}ConcatFasta.py --files *.fasta --dir {path_in} --outfile concat1.fasta --part
 
     touch {done}
 
