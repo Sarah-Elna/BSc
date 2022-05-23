@@ -303,5 +303,5 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 gwf.target_from_template('Trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/",
                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
                                         path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-                                        path_run = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/"
+                                        path_run = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/",
                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/"))
