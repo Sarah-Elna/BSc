@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # ConcatFasta.py
 
-########################### Eddited line 130 by Sarah E. Valentin
-
 import argparse
 import os
 import re
@@ -129,7 +127,7 @@ def main():
         for file in files:
             if not args.silent:
                 print("Reading: ", file, "\r", end='', flush=True)
-            datalist[file] = readfasta(file, args.delim)
+            datalist[file] = readfasta(args.dir+"/"+file, args.delim)
             if datalist[file] == {}:
                 parser.error(message=file+" is not FASTA")
             alnlen = list(map(lambda x: len(datalist[file][x]), datalist[file].keys()))
