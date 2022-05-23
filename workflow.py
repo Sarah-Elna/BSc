@@ -187,7 +187,7 @@ def mafft(gene, path_in, path_out, done):
 ###############################################---- Trim ----#############################################################
 ##########################################################################################################################
 
-def trim(path_python, path_in, path_out, done):
+def trim(path_python, path_in, path_out, path_run, done):
     """Trim the mafft files"""
     inputs = [path_in+'accD', path_in+'atpF', path_in+'clpP', path_in+'ndhB', path_in+'petA', path_in+'psaB', path_in+'psbA', path_in+'psbD', path_in+'rpl2', path_in+'rps12', path_in+'rps2', path_in+'rrn5', path_in+'trnI', path_in+'trnP', path_in+'ycf4', path_in+'atpA', path_in+'atpI', path_in+'matK', path_in+'ndhD', path_in+'petB', path_in+'psaC', path_in+'psbB', path_in+'rbcL', path_in+'rpoB', path_in+'rps16', path_in+'rps3', path_in+'trnA', path_in+'trnL', path_in+'trnS', path_in+'atpB', path_in+'ccsA', path_in+'ndhA', path_in+'ndhH', path_in+'petD', path_in+'psaI', path_in+'psbC', path_in+'rpl16', path_in+'rpoC1', path_in+'rps18', path_in+'rrn16', path_in+'trnG', path_in+'trnN', path_in+'trnV']
     outputs = [done, path_out+'concat1.fasta'] 
@@ -197,13 +197,13 @@ def trim(path_python, path_in, path_out, done):
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
     source activate base
 
-    cd {path_out}
+    cd {path_run}
 
     python {path_python}ConcatFasta.py --files *.fasta --dir . --outfile concat1.fasta --part
 
     touch {done}
 
-    """.format(path_python = path_python, path_in = path_in, path_out = path_out, done = done)
+    """.format(path_python = path_python, path_in = path_in, path_out = path_out, path_run = path_run, done = done)
 
     return (inputs, outputs, options, spec)
 
@@ -300,7 +300,8 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
 # Running Trim
-gwf.target_from_template('Trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/",
+gwf.target_from_template('Trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/",
                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
                                         path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+                                        path_run = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/"
                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/"))
