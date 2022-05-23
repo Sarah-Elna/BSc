@@ -187,19 +187,23 @@ def mafft(gene, path_in, path_out, done):
 ###############################################---- Trim ----#############################################################
 ##########################################################################################################################
 
-# def mafft(gene, path_in, path_out, done):
-#    """Trim the mafft files"""
-#    inputs = []
-#    outputs = [done,path_out+gene+"_aligned.fasta"] 
-#    options = {'cores': 1, 'memory': "500g", 'walltime': "5:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+def trim(gene, path_in, path_out, done):
+    """Trim the mafft files"""
+    inputs = [path_in+gene]
+    outputs = [done, path_out+gene+'_concat.fasta'] 
+    options = {'cores': 1, 'memory': "20g", 'walltime': "5:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
-#    spec = """
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
 
-#    python ConcatFasta.py --files *.fasta --dir . --outfile concat1.fasta --part
+    python {path_python}ConcatFasta.py --files {path_in}{gene}.fasta --dir . --outfile {path_out}{gene}_concat.fasta --part
 
-#    """.format()
+    touch {done}
 
-#    return (inputs, outputs, options, spec)
+    """.format(path_python = path_python, path_in = path_in, gene = gene, path_out = path_out, done = done)
+
+    return (inputs, outputs, options, spec)
 
 ########################################################################################################################
 ######################################################---- RUN ----#####################################################
@@ -285,10 +289,20 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))
 
 # Running MAFFT
+# for i in range(len(genes)):
+#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/"+genes[i]+'.FNA'
+#     if os.path.isfile(pth):
+#         gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
+#         path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
+#         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
+#         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
+
+# Running Trim
 for i in range(len(genes)):
-    pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/"+genes[i]+'.FNA'
+    pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]
     if os.path.isfile(pth):
-        gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
-        path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
-        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
+        gwf.target_from_template('Trim_'+str(i), trim(gene = genes[i],
+        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/",
+        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
+        path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/"+genes[i]))
