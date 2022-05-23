@@ -197,7 +197,9 @@ def trim(path_python, path_in, gene, path_out, done):
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
     source activate base
 
-    python {path_python}ConcatFasta.py --files {gene}.fasta --dir {path_in} --outfile {path_out}{gene}_concat.fasta --part
+    cd {path_out}
+
+    python {path_python}ConcatFasta.py --files *.fasta --dir . --outfile concat1.fasta --part
 
     touch {done}
 
@@ -298,11 +300,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
 # Running Trim
-for i in range(len(genes)):
-    pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]
-    if os.path.isfile(pth):
-        gwf.target_from_template('Trim_'+str(i), trim(gene = genes[i],
-        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/",
-        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
-        path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/"+genes[i]))
+gwf.target_from_template('Trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/",
+                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
+                                        path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/"))
