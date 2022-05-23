@@ -190,7 +190,7 @@ def mafft(gene, path_in, path_out, done):
 def trim(path_python, path_in, path_out, done):
     """Trim the mafft files"""
     inputs = [path_in+gene]
-    outputs = [done, path_out+gene+'_concat.fasta'] 
+    outputs = [done, path_out+'concat1.fasta'] 
     options = {'cores': 1, 'memory': "20g", 'walltime': "5:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
