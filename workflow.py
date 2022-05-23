@@ -189,7 +189,7 @@ def mafft(gene, path_in, path_out, done):
 
 def trim(path_python, path_in, path_out, done):
     """Trim the mafft files"""
-    inputs = [path_in+gene]
+    inputs = [path_in+'accD', path_on+'atpF', path_on+'clpP', path_on+'ndhB', path_on+'petA', path_on+'psaB', path_on+'psbA', path_on+'psbD', path_on+'rpl2', path_on+'rps12', path_on+'rps2', path_on+'rrn5', path_on+'trnI', path_on+'trnP', path_on+'ycf4', path_on+'atpA', path_on+'atpI', path_on+'matK', path_on+'ndhD', path_on+'petB', path_on+'psaC', path_on+'psbB', path_on+'rbcL', path_on+'rpoB', path_on+'rps16', path_on+'rps3', path_on+'trnA', path_on+'trnL', path_on+'trnS', path_on+'atpB', path_on+'ccsA', path_on+'ndhA', path_on+'ndhH', path_on+'petD', path_on+'psaI', path_on+'psbC', path_on+'rpl16', path_on+'rpoC1', path_on+'rps18', path_on+'rrn16', path_on+'trnG', path_on+'trnN', path_on+'trnV']
     outputs = [done, path_out+'concat1.fasta'] 
     options = {'cores': 1, 'memory': "20g", 'walltime': "5:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
