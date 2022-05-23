@@ -197,7 +197,9 @@ def trim(path_python, path_in, path_out, done):
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
     source activate base
 
-    python {path_python}ConcatFasta.py --files {path_in}*.fasta --outfile {path_out}concat1.fasta --part
+    cd {path_in}
+
+    python {path_python}ConcatFasta.py --files {path_in}*.fasta --dir . --outfile {path_out}concat1.fasta --part
 
     touch {done}
 
