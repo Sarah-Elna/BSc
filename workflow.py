@@ -237,7 +237,7 @@ def trim(path_python, path_in, path_out, done):
 def iqtree(inputs, done, path_out, path_in, path_part):
     """Runs IQtree from the concoctanated file from Trim"""
     inputs = [inputs]
-    outputs = [done] 
+    outputs = [done+'iqtree.txt'] 
     options = {'cores': 5, 'memory': "10g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
@@ -248,7 +248,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     iqtree -s {path_in}concat1.fasta -T AUTO -B 1000 --redo -p {path_part}part.txt -o LORU0,LORU1
 
-    touch {done}
+    touch {done}iqtree.txt
 
     """.format(inputs=inputs, done=done, path_out=path_out, path_in=path_in, path_part=path_part)
 
