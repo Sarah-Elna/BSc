@@ -14,7 +14,7 @@ def rename_targets(in_file_path):
             print(new_line)
         else:
             print(line)
-    in_file.close()
+    file.close()
     return ':-S'
 
 in_file_path = in_file
