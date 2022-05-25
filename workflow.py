@@ -138,50 +138,73 @@ def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam
 ##########################################################################################################################
 
 def retrieve(path_in):
-   """Retrieve gene sequences from all the species and create an unaligned multifasta for each gene."""
-   inputs = [path_in + 'done/Coverage/DACA0', path_in + 'done/Coverage/DANG1', path_in + 'done/Coverage/DBET1', path_in + 'done/Coverage/DCAU0',path_in + 'done/Coverage/DCUR0', path_in + 'done/Coverage/DFAS0', path_in + 'done/Coverage/DHIA0', path_in + 'done/Coverage/DJUM0', path_in + 'done/Coverage/DLEU1', path_in + 'done/Coverage/DMAL0', path_in + 'done/Coverage/DMOO0', path_in + 'done/Coverage/DPAC0', path_in + 'done/Coverage/DPSA0', path_in + 'done/Coverage/DROB0', path_in + 'done/Coverage/DSIM0', path_in + 'done/Coverage/DTOK0', path_in + 'done/Coverage/MRDA0', path_in + 'done/Coverage/DACU0', path_in + 'done/Coverage/DANK0', path_in + 'done/Coverage/DBET2', path_in + 'done/Coverage/DCER0', path_in + 'done/Coverage/DDEC0', path_in + 'done/Coverage/DFIB0', path_in + 'done/Coverage/DHIL0', path_in + 'done/Coverage/DJUR0', path_in + 'done/Coverage/DLIL0', path_in + 'done/Coverage/DMAN0', path_in + 'done/Coverage/DNAU0', path_in + 'done/Coverage/DPAL0', path_in + 'done/Coverage/DPUL0', path_in + 'done/Coverage/DROS0', path_in + 'done/Coverage/DSIN0', path_in + 'done/Coverage/DTRA0', path_in + 'done/Coverage/MRDA1', path_in + 'done/Coverage/DAFF0', path_in + 'done/Coverage/DANT0', path_in + 'done/Coverage/DBOI0', path_in + 'done/Coverage/DCOM0', path_in + 'done/Coverage/DDEC1', path_in + 'done/Coverage/DFOR0', path_in + 'done/Coverage/DHOV0', path_in + 'done/Coverage/DLAE0', path_in + 'done/Coverage/DLIN0', path_in + 'done/Coverage/DMAN1', path_in + 'done/Coverage/DNOD0', path_in + 'done/Coverage/DPER0', path_in + 'done/Coverage/DPUM0', path_in + 'done/Coverage/DSAH0', path_in + 'done/Coverage/DSPB0', path_in + 'done/Coverage/DTSA0', path_in + 'done/Coverage/MRDA2', path_in + 'done/Coverage/DALB0', path_in + 'done/Coverage/DAQU0', path_in + 'done/Coverage/DBON0', path_in + 'done/Coverage/DCON0', path_in + 'done/Coverage/DDEL0', path_in + 'done/Coverage/DGEU0', path_in + 'done/Coverage/DHUM0', path_in + 'done/Coverage/DLAN0', path_in + 'done/Coverage/DLOK0', path_in + 'done/Coverage/DMAR0', path_in + 'done/Coverage/DNOS0', path_in + 'done/Coverage/DPER1', path_in + 'done/Coverage/DPUS0', path_in + 'done/Coverage/DSAI0', path_in + 'done/Coverage/DSPI0', path_in + 'done/Coverage/DTUR0', path_in + 'done/Coverage/MRDA3', path_in + 'done/Coverage/DAMB0', path_in + 'done/Coverage/DARE0', path_in + 'done/Coverage/DBOS0', path_in + 'done/Coverage/DCON1', path_in + 'done/Coverage/DDIG0', path_in + 'done/Coverage/DGLA0', path_in + 'done/Coverage/DHUM1', path_in + 'done/Coverage/DLAN1', path_in + 'done/Coverage/DLOU0', path_in + 'done/Coverage/DMCD0', path_in + 'done/Coverage/DOCC0', path_in + 'done/Coverage/DPIL0', path_in + 'done/Coverage/DPUS1', path_in + 'done/Coverage/DSAI1', path_in + 'done/Coverage/DSPN0', path_in + 'done/Coverage/DUTI0', path_in + 'done/Coverage/MRIN0', path_in + 'done/Coverage/DAMB1', path_in + 'done/Coverage/DBAR0', path_in + 'done/Coverage/DBRE0', path_in + 'done/Coverage/DCOO0', path_in + 'done/Coverage/DDRA0', path_in + 'done/Coverage/DGRO0', path_in + 'done/Coverage/DHUM2', path_in + 'done/Coverage/DLAN2', path_in + 'done/Coverage/DLUT0', path_in + 'done/Coverage/DMET0', path_in + 'done/Coverage/DONI0', path_in + 'done/Coverage/DPIN0', path_in + 'done/Coverage/DRAB0', path_in + 'done/Coverage/DSAN0', path_in + 'done/Coverage/DSPN1', path_in + 'done/Coverage/DVIR0', path_in + 'done/Coverage/MRIN1', path_in + 'done/Coverage/DAMB2', path_in + 'done/Coverage/DBAS0', path_in + 'done/Coverage/DBRI0', path_in + 'done/Coverage/DCOR0', path_in + 'done/Coverage/DDRA1', path_in + 'done/Coverage/DHEN0',  path_in + 'done/Coverage/DIFA0', path_in + 'done/Coverage/DLAN3', path_in + 'done/Coverage/DLUT1', path_in + 'done/Coverage/DMIN0', path_in + 'done/Coverage/DONI1', path_in + 'done/Coverage/DPLU0', path_in + 'done/Coverage/DRAK0', path_in + 'done/Coverage/DSAN1', path_in + 'done/Coverage/DSUB0', path_in + 'done/Coverage/DVON0', path_in + 'done/Coverage/MRIN2', path_in + 'done/Coverage/DAND0', path_in + 'done/Coverage/DBEE0', path_in + 'done/Coverage/DCAB0', path_in + 'done/Coverage/DCOR1', path_in + 'done/Coverage/DELE0', path_in + 'done/Coverage/DHET0', path_in + 'done/Coverage/DINT0', path_in + 'done/Coverage/DLAN4', path_in + 'done/Coverage/DMAD0', path_in + 'done/Coverage/DMIR0', path_in + 'done/Coverage/DORE0', path_in + 'done/Coverage/DPOI0', path_in + 'done/Coverage/DRAM0', path_in + 'done/Coverage/DSCA0', path_in + 'done/Coverage/DTAN0', path_in + 'done/Coverage/LEHA0', path_in + 'done/Coverage/MRSP0', path_in + 'done/Coverage/DAND1', path_in + 'done/Coverage/DBEJ0', path_in + 'done/Coverage/DCAN0', path_in + 'done/Coverage/DCOU0', path_in + 'done/Coverage/DERI0', path_in + 'done/Coverage/DHET1', path_in + 'done/Coverage/DINT1', path_in + 'done/Coverage/DLAS0', path_in + 'done/Coverage/DMAD1', path_in + 'done/Coverage/DMIR1', path_in + 'done/Coverage/DORO0', path_in + 'done/Coverage/DPRE0', path_in + 'done/Coverage/DREF0', path_in + 'done/Coverage/DSCH0', path_in + 'done/Coverage/DTEN0', path_in + 'done/Coverage/LESP0', path_in + 'done/Coverage/MSKO0', path_in + 'done/Coverage/DAND2', path_in + 'done/Coverage/DBER0', path_in + 'done/Coverage/DCAR0', path_in + 'done/Coverage/DCRI0', path_in + 'done/Coverage/DFAN0', path_in + 'done/Coverage/DHET2', path_in + 'done/Coverage/DINT2', path_in + 'done/Coverage/DLEP0', path_in + 'done/Coverage/DMAH0', path_in + 'done/Coverage/DMOC0', path_in + 'done/Coverage/DOVO0', path_in + 'done/Coverage/DPRO0', path_in + 'done/Coverage/DREM0', path_in + 'done/Coverage/DSCO0', path_in + 'done/Coverage/DTHE0', path_in + 'done/Coverage/LORU0', path_in + 'done/Coverage/MSKO1', path_in + 'done/Coverage/DANG0', path_in + 'done/Coverage/DBET0', path_in + 'done/Coverage/DCAT0', path_in + 'done/Coverage/DCUL0', path_in + 'done/Coverage/DFAN1', path_in + 'done/Coverage/DHET3', path_in + 'done/Coverage/DJER0', path_in + 'done/Coverage/DLEU0', path_in + 'done/Coverage/DMAK0', path_in + 'done/Coverage/DMON0', path_in + 'done/Coverage/DOVO1', path_in + 'done/Coverage/DPRO1', path_in + 'done/Coverage/DRIV0', path_in + 'done/Coverage/DSER0', path_in + 'done/Coverage/DTHI0', path_in + 'done/Coverage/LORU1', path_in + 'done/Coverage/MSMA0']
-   outputs = [path_in + 'done/Retrieve_Genes/Retrieve_all_done.txt']
-   options = {'cores': 10, 'memory': "20g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+    """Retrieve gene sequences from all the species and create an unaligned multifasta for each gene."""
+    inputs = [path_in + 'done/Coverage/DACA0', path_in + 'done/Coverage/DANG1', path_in + 'done/Coverage/DBET1', path_in + 'done/Coverage/DCAU0',path_in + 'done/Coverage/DCUR0', path_in + 'done/Coverage/DFAS0', path_in + 'done/Coverage/DHIA0', path_in + 'done/Coverage/DJUM0', path_in + 'done/Coverage/DLEU1', path_in + 'done/Coverage/DMAL0', path_in + 'done/Coverage/DMOO0', path_in + 'done/Coverage/DPAC0', path_in + 'done/Coverage/DPSA0', path_in + 'done/Coverage/DROB0', path_in + 'done/Coverage/DSIM0', path_in + 'done/Coverage/DTOK0', path_in + 'done/Coverage/MRDA0', path_in + 'done/Coverage/DACU0', path_in + 'done/Coverage/DANK0', path_in + 'done/Coverage/DBET2', path_in + 'done/Coverage/DCER0', path_in + 'done/Coverage/DDEC0', path_in + 'done/Coverage/DFIB0', path_in + 'done/Coverage/DHIL0', path_in + 'done/Coverage/DJUR0', path_in + 'done/Coverage/DLIL0', path_in + 'done/Coverage/DMAN0', path_in + 'done/Coverage/DNAU0', path_in + 'done/Coverage/DPAL0', path_in + 'done/Coverage/DPUL0', path_in + 'done/Coverage/DROS0', path_in + 'done/Coverage/DSIN0', path_in + 'done/Coverage/DTRA0', path_in + 'done/Coverage/MRDA1', path_in + 'done/Coverage/DAFF0', path_in + 'done/Coverage/DANT0', path_in + 'done/Coverage/DBOI0', path_in + 'done/Coverage/DCOM0', path_in + 'done/Coverage/DDEC1', path_in + 'done/Coverage/DFOR0', path_in + 'done/Coverage/DHOV0', path_in + 'done/Coverage/DLAE0', path_in + 'done/Coverage/DLIN0', path_in + 'done/Coverage/DMAN1', path_in + 'done/Coverage/DNOD0', path_in + 'done/Coverage/DPER0', path_in + 'done/Coverage/DPUM0', path_in + 'done/Coverage/DSAH0', path_in + 'done/Coverage/DSPB0', path_in + 'done/Coverage/DTSA0', path_in + 'done/Coverage/MRDA2', path_in + 'done/Coverage/DALB0', path_in + 'done/Coverage/DAQU0', path_in + 'done/Coverage/DBON0', path_in + 'done/Coverage/DCON0', path_in + 'done/Coverage/DDEL0', path_in + 'done/Coverage/DGEU0', path_in + 'done/Coverage/DHUM0', path_in + 'done/Coverage/DLAN0', path_in + 'done/Coverage/DLOK0', path_in + 'done/Coverage/DMAR0', path_in + 'done/Coverage/DNOS0', path_in + 'done/Coverage/DPER1', path_in + 'done/Coverage/DPUS0', path_in + 'done/Coverage/DSAI0', path_in + 'done/Coverage/DSPI0', path_in + 'done/Coverage/DTUR0', path_in + 'done/Coverage/MRDA3', path_in + 'done/Coverage/DAMB0', path_in + 'done/Coverage/DARE0', path_in + 'done/Coverage/DBOS0', path_in + 'done/Coverage/DCON1', path_in + 'done/Coverage/DDIG0', path_in + 'done/Coverage/DGLA0', path_in + 'done/Coverage/DHUM1', path_in + 'done/Coverage/DLAN1', path_in + 'done/Coverage/DLOU0', path_in + 'done/Coverage/DMCD0', path_in + 'done/Coverage/DOCC0', path_in + 'done/Coverage/DPIL0', path_in + 'done/Coverage/DPUS1', path_in + 'done/Coverage/DSAI1', path_in + 'done/Coverage/DSPN0', path_in + 'done/Coverage/DUTI0', path_in + 'done/Coverage/MRIN0', path_in + 'done/Coverage/DAMB1', path_in + 'done/Coverage/DBAR0', path_in + 'done/Coverage/DBRE0', path_in + 'done/Coverage/DCOO0', path_in + 'done/Coverage/DDRA0', path_in + 'done/Coverage/DGRO0', path_in + 'done/Coverage/DHUM2', path_in + 'done/Coverage/DLAN2', path_in + 'done/Coverage/DLUT0', path_in + 'done/Coverage/DMET0', path_in + 'done/Coverage/DONI0', path_in + 'done/Coverage/DPIN0', path_in + 'done/Coverage/DRAB0', path_in + 'done/Coverage/DSAN0', path_in + 'done/Coverage/DSPN1', path_in + 'done/Coverage/DVIR0', path_in + 'done/Coverage/MRIN1', path_in + 'done/Coverage/DAMB2', path_in + 'done/Coverage/DBAS0', path_in + 'done/Coverage/DBRI0', path_in + 'done/Coverage/DCOR0', path_in + 'done/Coverage/DDRA1', path_in + 'done/Coverage/DHEN0',  path_in + 'done/Coverage/DIFA0', path_in + 'done/Coverage/DLAN3', path_in + 'done/Coverage/DLUT1', path_in + 'done/Coverage/DMIN0', path_in + 'done/Coverage/DONI1', path_in + 'done/Coverage/DPLU0', path_in + 'done/Coverage/DRAK0', path_in + 'done/Coverage/DSAN1', path_in + 'done/Coverage/DSUB0', path_in + 'done/Coverage/DVON0', path_in + 'done/Coverage/MRIN2', path_in + 'done/Coverage/DAND0', path_in + 'done/Coverage/DBEE0', path_in + 'done/Coverage/DCAB0', path_in + 'done/Coverage/DCOR1', path_in + 'done/Coverage/DELE0', path_in + 'done/Coverage/DHET0', path_in + 'done/Coverage/DINT0', path_in + 'done/Coverage/DLAN4', path_in + 'done/Coverage/DMAD0', path_in + 'done/Coverage/DMIR0', path_in + 'done/Coverage/DORE0', path_in + 'done/Coverage/DPOI0', path_in + 'done/Coverage/DRAM0', path_in + 'done/Coverage/DSCA0', path_in + 'done/Coverage/DTAN0', path_in + 'done/Coverage/LEHA0', path_in + 'done/Coverage/MRSP0', path_in + 'done/Coverage/DAND1', path_in + 'done/Coverage/DBEJ0', path_in + 'done/Coverage/DCAN0', path_in + 'done/Coverage/DCOU0', path_in + 'done/Coverage/DERI0', path_in + 'done/Coverage/DHET1', path_in + 'done/Coverage/DINT1', path_in + 'done/Coverage/DLAS0', path_in + 'done/Coverage/DMAD1', path_in + 'done/Coverage/DMIR1', path_in + 'done/Coverage/DORO0', path_in + 'done/Coverage/DPRE0', path_in + 'done/Coverage/DREF0', path_in + 'done/Coverage/DSCH0', path_in + 'done/Coverage/DTEN0', path_in + 'done/Coverage/LESP0', path_in + 'done/Coverage/MSKO0', path_in + 'done/Coverage/DAND2', path_in + 'done/Coverage/DBER0', path_in + 'done/Coverage/DCAR0', path_in + 'done/Coverage/DCRI0', path_in + 'done/Coverage/DFAN0', path_in + 'done/Coverage/DHET2', path_in + 'done/Coverage/DINT2', path_in + 'done/Coverage/DLEP0', path_in + 'done/Coverage/DMAH0', path_in + 'done/Coverage/DMOC0', path_in + 'done/Coverage/DOVO0', path_in + 'done/Coverage/DPRO0', path_in + 'done/Coverage/DREM0', path_in + 'done/Coverage/DSCO0', path_in + 'done/Coverage/DTHE0', path_in + 'done/Coverage/LORU0', path_in + 'done/Coverage/MSKO1', path_in + 'done/Coverage/DANG0', path_in + 'done/Coverage/DBET0', path_in + 'done/Coverage/DCAT0', path_in + 'done/Coverage/DCUL0', path_in + 'done/Coverage/DFAN1', path_in + 'done/Coverage/DHET3', path_in + 'done/Coverage/DJER0', path_in + 'done/Coverage/DLEU0', path_in + 'done/Coverage/DMAK0', path_in + 'done/Coverage/DMON0', path_in + 'done/Coverage/DOVO1', path_in + 'done/Coverage/DPRO1', path_in + 'done/Coverage/DRIV0', path_in + 'done/Coverage/DSER0', path_in + 'done/Coverage/DTHI0', path_in + 'done/Coverage/LORU1', path_in + 'done/Coverage/MSMA0']
+    outputs = [path_in + 'done/Retrieve_Genes/Retrieve_all_done.txt']
+    options = {'cores': 10, 'memory': "20g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
-   spec = """
-   source /home/sarahe/miniconda3/etc/profile.d/conda.sh
-   source activate base
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
 
-   cd {path_in}
+    cd {path_in}
 
-   ls *trimmed.fasta > filelist.txt
+    ls *trimmed.fasta > filelist.txt
 
-   python /home/sarahe/GitHub/BSc/Python_Scripts/samples2genes.py > /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/outstats.csv
+    python /home/sarahe/GitHub/BSc/Python_Scripts/samples2genes.py > /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/outstats.csv
 
-   touch /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt
+    touch /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt
 
-   """.format(path_in = path_in)
+    """.format(path_in = path_in)
 
-   return (inputs, outputs, options, spec)
+    return (inputs, outputs, options, spec)
 
 ##########################################################################################################################
 ###############################################---- MAFT ----#############################################################
 ##########################################################################################################################
 
 def mafft(gene, path_in, path_out, done):
-   """Aligning all the sequences for each gene."""
-   inputs = ["/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt", path_in+gene+".FNA"]
-   outputs = [done,path_out+gene+"_aligned.fasta"] 
-   options = {'cores': 1, 'memory': "500g", 'walltime': "10:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+    """Aligning all the sequences for each gene."""
+    inputs = ["/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt", path_in+gene+".FNA"]
+    outputs = [done,path_out+gene+"_aligned.fasta"] 
+    options = {'cores': 1, 'memory': "500g", 'walltime': "10:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
-   spec = """
+    spec = """
 
-   source activate mafft_env
+    source activate mafft_env
 
-   cd {path_in}
+    cd {path_in}
 
-   mafft --globalpair --large --adjustdirectionaccurately --thread 1 {gene}.FNA > {path_out}{gene}_aligned.fasta
+    mafft --globalpair --large --adjustdirectionaccurately --thread 1 {gene}.FNA > {path_out}{gene}_aligned.fasta
     
-   touch {done}
+    touch {done}
 
-   """.format(gene = gene, done = done, path_in = path_in, path_out=path_out)
+    """.format(gene = gene, done = done, path_in = path_in, path_out=path_out)
 
-   return (inputs, outputs, options, spec)
+    return (inputs, outputs, options, spec)
+
+##########################################################################################################################
+#######################################---- Post MAFFT Renaming ----######################################################
+##########################################################################################################################
+
+def post_mafft(gene, path_in, path_out, path_python, done):
+    """Aligning all the sequences for each gene."""
+    inputs = [path_in+gene+"_aligned.fasta"]
+    outputs = [done,path_out+gene+"_renamed_aligned.fasta"] 
+    options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
+
+    python {path_python}post_mafft_renaming.py {path_in}{gene}_aligned.fasta > {path_out}{gene}_renamed_aligned.fasta
+
+    touch {done}{gene}
+
+    """.format(gene = gene, done = done, path_in = path_in, path_out=path_out)
+
+    return (inputs, outputs, options, spec)
+
 
 ##########################################################################################################################
 ###############################################---- Trim ----#############################################################
@@ -255,13 +278,13 @@ sp = read_csv(rename, ';')
 
 # # run intronerate
 # for i in range(0, len(sp)):
-#     gwf.target_from_template('Intronerate_'+sp[i], intronerate(species= sp[i],
+#     gwf.target_from_template('intronerate_'+sp[i], intronerate(species= sp[i],
 #                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
 #                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
 # for i in range(0, len(sp)):
-#     gwf.target_from_template('Coverage_'+sp[i], coverage(species = sp[i],
+#     gwf.target_from_template('coverage_'+sp[i], coverage(species = sp[i],
 #                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
 #                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
 #                                                         dir_wrk = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/',
@@ -299,10 +322,21 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
+# Renaming mafft output files to be ready for Trim
+for i in range(len(genes)):
+    pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
+    if os.path.isfile(pth):
+        gwf.target_from_template('post_mafft'+genes[i], post_mafft(gene = genes[i],
+                                                                    path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
+                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft",
+                                                                    path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+                                                                    done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done"))
+
+
 # Running Trim
-gwf.target_from_template('Trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
-                                        path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/concatenate_done"))
+#!gwf.target_from_template('trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
+#!                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/",
+#!                                        path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+#!                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_concatenate/done/concatenate_done"))
 
 # After running Trim, you must look at the gwf logs Trim and create part.txt manually, and transfer the information about the alignment regions start and end to part.txt
