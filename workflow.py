@@ -201,7 +201,7 @@ def post_mafft(gene, path_in, path_out, path_python, done):
 
     touch {done}{gene}
 
-    """.format(gene = gene, done = done, path_in = path_in, path_out=path_out)
+    """.format(gene = gene, done = done, path_in = path_in, path_out=path_out, path_python=path_python)
 
     return (inputs, outputs, options, spec)
 
