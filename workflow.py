@@ -250,7 +250,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     touch {done}
 
-    """.format(path_python = path_python, path_in = path_in, path_out = path_out, done = done)
+    """.format(inputs=inputs, done=done, path_out=path_out, path_in=path_in, path_part=path_part)
 
     return (inputs, outputs, options, spec)
 
