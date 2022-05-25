@@ -230,6 +230,30 @@ def trim(path_python, path_in, path_out, done):
 
     return (inputs, outputs, options, spec)
 
+##########################################################################################################################
+###############################################---- IQtree ----###########################################################
+##########################################################################################################################
+
+def iqtree(inputs, done, path_out, path_in, path_part):
+    """Runs IQtree from the concoctanated file from Trim"""
+    inputs = [inputs]
+    outputs = [done] 
+    options = {'cores': 5, 'memory': "10g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+
+    spec = """
+    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
+    source activate base
+
+    cd {path_out}
+
+    iqtree -s {path_in}concat1.fasta -T AUTO -B 1000 --redo -p {path_part}part.txt -o LORU0,LORU1
+
+    touch {done}
+
+    """.format(path_python = path_python, path_in = path_in, path_out = path_out, done = done)
+
+    return (inputs, outputs, options, spec)
+
 ########################################################################################################################
 ######################################################---- RUN ----#####################################################
 ########################################################################################################################
@@ -334,9 +358,16 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 
 
 # Running Trim
-gwf.target_from_template('trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
-                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
-                                        path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done"))
+# gwf.target_from_template('trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
+#                                         path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done"))
 
 # After running Trim, you must look at the gwf logs Trim and create part.txt manually, and transfer the information about the alignment regions start and end to part.txt
+
+# Running IQtree
+gwf.target_from_template('IQtree', iqtree(inputs = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done",
+                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate",
+                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/",
+                                        path_part = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/done/"))
