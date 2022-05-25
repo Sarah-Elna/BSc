@@ -246,7 +246,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     cd {path_out}
 
-    iqtree -s {path_in}concat1.fasta -T AUTO -B 1000 --redo -o LORU0,LORU1
+    iqtree -s {path_in}concat1.fasta -T AUTO -B 1000 --redo -o LORU1
 
     touch {done}iqtree.txt
 
