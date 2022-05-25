@@ -190,7 +190,7 @@ def mafft(gene, path_in, path_out, done):
 def post_mafft(gene, path_in, path_out, path_python, done):
     """Aligning all the sequences for each gene."""
     inputs = [path_in+gene+"_aligned.fasta"]
-    outputs = [done, path_out+gene+"_renamed_aligned.fasta"] 
+    outputs = [done+gene, path_out+gene+"_renamed_aligned.fasta"] 
     options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
