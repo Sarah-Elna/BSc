@@ -190,7 +190,7 @@ def mafft(gene, path_in, path_out, done):
 def post_mafft(gene, path_in, path_out, path_python, done):
     """Aligning all the sequences for each gene."""
     inputs = [path_in+gene+"_aligned.fasta"]
-    outputs = [done,path_out+gene+"_renamed_aligned.fasta"] 
+    outputs = [done, path_out+gene+"_renamed_aligned.fasta"] 
     options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
@@ -328,7 +328,7 @@ for i in range(len(genes)):
     if os.path.isfile(pth):
         gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft",
+                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done"))
 
