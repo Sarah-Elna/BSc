@@ -367,7 +367,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 
 # Running IQtree
 gwf.target_from_template('IQtree', iqtree(inputs = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done",
-                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate",
+                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/",
                                         path_part = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/done/"))
