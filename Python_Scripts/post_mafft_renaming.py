@@ -12,7 +12,7 @@ def rename_targets(in_file_path):
         if line != '' and line[0] == '>':
             new_line = line[0:6]
             new_line.strip()
-            print(new_line, end='')
+            print(new_line, end='\n')
         else:
             line.strip()
             print(line, end='')
