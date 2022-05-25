@@ -330,7 +330,7 @@ for i in range(len(genes)):
                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
                                                                     path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-                                                                    done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done"))
+                                                                    done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
 
 
 # Running Trim

@@ -11,8 +11,10 @@ def rename_targets(in_file_path):
     for line in file_line_list:
         if line != '' and line[0] == '>':
             new_line = line[0:6]
+            new_line.strip()
             print(new_line)
         else:
+            line.strip()
             print(line)
     file.close()
     return ':-S'
