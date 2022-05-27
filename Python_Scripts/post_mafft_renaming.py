@@ -26,10 +26,9 @@ def rename_mafft(id_list, name_list, concat1_path, in_file_path):
             sp_id = line[1:6]
             for i in range(0, len(id_list)):
                 if sp_id == id_list[i]:
-                    print('>'+name_list[i])
-                    print('\n')
+                    print('>'+name_list[i], end='\n')
         else:
-            print(line)
+            print(line, end='')
     file.close()
     return ':-S'
 
