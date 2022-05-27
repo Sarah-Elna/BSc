@@ -246,7 +246,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     cd {path_out}
 
-    iqtree -s {path_in}concat1_rename_and_manual_trim.fasta -T AUTO -B 1000 --redo -o LORU1
+    iqtree -s {path_in}concat1_rename_and_manual_trim.fasta -T AUTO -B 1000 --redo -o Loxococcus_rupicola
 
     touch {done}iqtree.txt
 
