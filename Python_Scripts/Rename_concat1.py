@@ -14,7 +14,7 @@ def read_csv(file_name, file_delimiter):
 
 
 def rename_concat(id_list, name_list, concat1_path):
-    new_file = open(concat_path+'concat1_rename.fasta', 'a')
+    new_file = open(concat1_path+'concat1_rename.fasta', 'a')
     original_file = open(concat1_path, 'r')
     file_line_list = original_file.readlines()
     for line in file_line_list:
