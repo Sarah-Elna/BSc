@@ -19,7 +19,7 @@ def rename_concat(id_list, name_list, concat1_path):
     file_line_list = original_file.readlines()
     for line in file_line_list:
         if line[0] == '>':
-            sp_id = line[1:5]
+            sp_id = line[1:6]
             for i in range(0, len(id_list)):
                 if sp_id == id_list[i]:
                     new_file.write('>'+name_list[i])
