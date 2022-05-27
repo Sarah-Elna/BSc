@@ -35,4 +35,4 @@ concat1_path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/'
 id_list, name_list = read_csv(rename, ';')
 print(id_list, name_list)
 
-#print(rename_concat(id_list, name_list, concat1_path))
+print(rename_concat(id_list, name_list, concat1_path))
