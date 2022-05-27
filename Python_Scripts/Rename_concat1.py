@@ -24,9 +24,6 @@ def rename_concat(id_list, name_list, concat1_path):
                 if sp_id == id_list[i]:
                     new_file.write('>'+name_list[i])
                     new_file.write('\n')
-                else:
-                    new_file.write('>'+id_list[i])
-                    new_file.write('\n')
         else:
             new_file.write(line)
     return ':-D'
