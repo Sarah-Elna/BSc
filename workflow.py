@@ -246,7 +246,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     cd {path_out}
 
-    iqtree -s {path_in}concat1.fasta -T AUTO -B 1000 --redo -o LORU1
+    iqtree -s {path_in}concat1_rename_and_manual_trim.fasta -T AUTO -B 1000 --redo -o LORU1
 
     touch {done}iqtree.txt
 
@@ -365,9 +365,9 @@ gwf.target_from_template('trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast
 
 # After running Trim, you must look at the gwf logs Trim and create part.txt manually, and transfer the information about the alignment regions start and end to part.txt
 
-# # Running IQtree
-# gwf.target_from_template('IQtree', iqtree(inputs = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done",
-#                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
-#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/",
-#                                         path_part = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
-#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/done/"))
+# Running IQtree
+gwf.target_from_template('IQtree', iqtree(inputs = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done",
+                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
+                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/",
+                                        path_part = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/done/"))
