@@ -18,7 +18,7 @@ def read_csv(file_name, file_delimiter):
             name_list.append(row[2])
     return (id_list, name_list)
 
-def rename_mafft(in_file_path):
+def rename_mafft(id_list, name_list, concat1_path, in_file_path):
     file = open(in_file, 'r')
     file_line_list = file.readlines()
     for line in file_line_list:
