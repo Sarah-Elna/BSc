@@ -28,8 +28,8 @@ def rename_mafft(id_list, name_list, concat1_path, in_file_path):
                 if sp_id == id_list[i]:
                     print('>'+name_list[i])
                     print('\n')
-                else:
-                    print(line)
+        else:
+            print(line)
     file.close()
     return ':-S'
 
