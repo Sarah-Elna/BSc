@@ -160,7 +160,7 @@ def retrieve(path_in):
     return (inputs, outputs, options, spec)
 
 ##########################################################################################################################
-###############################################---- MAFT ----#############################################################
+###############################################---- MAFFT ----#############################################################
 ##########################################################################################################################
 
 def mafft(gene, path_in, path_out, done):
@@ -246,7 +246,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     cd {path_out}
 
-    iqtree -s {path_in}concat1_rename_and_manual_trim.fasta -T AUTO -B 1000 --redo -o Loxococcus_rupicola
+    iqtree -s {path_in}concat1_rename_and_manual_trim2.fasta -T AUTO -B 1000 --redo -o Loxococcus_rupicola
 
     touch {done}iqtree.txt
 
