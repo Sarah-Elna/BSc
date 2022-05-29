@@ -238,7 +238,7 @@ def iqtree(inputs, done, path_out, path_in, path_part):
     """Runs IQtree from the concoctanated file from Trim"""
     inputs = [inputs]
     outputs = [done+'iqtree.txt'] 
-    options = {'cores': 5, 'memory': "10g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+    options = {'cores': 5, 'memory': "10g", 'walltime': "24:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
