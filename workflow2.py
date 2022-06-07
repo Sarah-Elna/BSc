@@ -340,17 +340,17 @@ gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chlorop
 ########################################### Running workflow for good gene recovery #############################################
 #################################################################################################################################
 
-# sp2 = ['LORU1', 'DSCO0', 'DSCA0', 'DRAB0', 'DPUS1', 'DPRE0', 'DOVO1', 'DMET0', 'DHIL0', 'DHIA0', 'DDRA1', 'DCON1', 'DBON0', 'DBAR0']
+sp2 = ['LORU1', 'DSCO0', 'DSCA0', 'DRAB0', 'DPUS1', 'DPRE0', 'DOVO1', 'DMET0', 'DHIL0', 'DHIA0', 'DDRA1', 'DCON1', 'DBON0', 'DBAR0']
 
-# # run hybpiper
-# for i in range(0, len(sp2)):
-#     gwf.target_from_template('hybpiper_'+sp2[i], hybpiper(species = sp2[i],
-#                                                         p1 = "_clean-Read1.fastq",
-#                                                         p2 = "_clean-Read2.fastq",
-#                                                         un = "_clean-Read12-single.fastq",
-#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/"+sp[i]))
+# run hybpiper
+for i in range(0, len(sp2)):
+    gwf.target_from_template('hybpiper_'+sp2[i], hybpiper(species = sp2[i],
+                                                        p1 = "_clean-Read1.fastq",
+                                                        p2 = "_clean-Read2.fastq",
+                                                        un = "_clean-Read12-single.fastq",
+                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/"+sp[i]))
 
 # # get name list from hybpiper run
 # gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/",
