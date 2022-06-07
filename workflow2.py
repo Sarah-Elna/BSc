@@ -140,7 +140,7 @@ def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam
 def retrieve(path_in, path_python, path_out, done):
     """Retrieve gene sequences from all the species and create an unaligned multifasta for each gene."""
     inputs = []
-    outputs = [done]
+    outputs = [path_out+done]
     options = {'cores': 10, 'memory': "20g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
@@ -401,7 +401,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
                                                         path_python = '/home/sarahe/GitHub/BSc/Python_Scripts/', 
                                                         path_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/',
-                                                        done = path_out+'Retrieve_all_done.txt'))
+                                                        done = 'Retrieve_all_done.txt'))
 
 # Running MAFFT
 # for i in range(len(genes)):
