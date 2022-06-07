@@ -155,7 +155,7 @@ def retrieve(path_in, path_python, path_out, done):
 
     touch {path_out}Retrieve_all_done.txt
 
-    """.format(path_in = path_in)
+    """.format(path_in = path_in, path_python = path_python, path_out = path_out, done = done)
 
     return (inputs, outputs, options, spec)
 
