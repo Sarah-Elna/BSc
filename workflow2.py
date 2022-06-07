@@ -327,7 +327,7 @@ for i in range(len(genes)):
     if os.path.isfile(pth):
         gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/fasta/",
+                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
 

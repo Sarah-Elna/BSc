@@ -20,6 +20,8 @@ def rename_targets(in_file_path):
             for j in range(0, len(duplicats_other)):
                 if duplicats_other[j] in new_line:
                     new_line = line[0:5]+'1'
+            new_line.strip()
+            print(new_line, end='\n')
         if line != '' and line[0] == '>':
             new_line = line[0:6]
             for i in range(0, len(duplicats_startswith_0)):
