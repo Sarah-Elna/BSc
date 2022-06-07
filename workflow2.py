@@ -205,38 +205,13 @@ def post_mafft(gene, path_in, path_out, path_python, done):
 
     return (inputs, outputs, options, spec)
 
-
-##########################################################################################################################
-###############################################---- Concatenate ----######################################################
-##########################################################################################################################
-
-def trim(path_python, path_in, path_out, done):
-    """Concatenate the mafft files"""
-    inputs = [path_in+'done/accD', path_in+'done/atpF', path_in+'done/clpP', path_in+'done/ndhB', path_in+'done/petA', path_in+'done/psaB', path_in+'done/psbA', path_in+'done/psbD', path_in+'done/rpl2', path_in+'done/rps12', path_in+'done/rps2', path_in+'done/rrn5', path_in+'done/trnI', path_in+'done/trnP', path_in+'done/ycf4', path_in+'done/atpA', path_in+'done/atpI', path_in+'done/matK', path_in+'done/ndhD', path_in+'done/petB', path_in+'done/psaC', path_in+'done/psbB', path_in+'done/rbcL', path_in+'done/rpoB', path_in+'done/rps16', path_in+'done/rps3', path_in+'done/trnA', path_in+'done/trnL', path_in+'done/trnS', path_in+'done/atpB', path_in+'done/ccsA', path_in+'done/ndhA', path_in+'done/ndhH', path_in+'done/petD', path_in+'done/psaI', path_in+'done/psbC', path_in+'done/rpl16', path_in+'done/rpoC1', path_in+'done/rps18', path_in+'done/rrn16', path_in+'done/trnG', path_in+'done/trnN', path_in+'done/trnV']
-    outputs = [done, path_out+'concat1.fasta'] 
-    options = {'cores': 1, 'memory': "20g", 'walltime': "5:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
-
-    spec = """
-    source /home/sarahe/miniconda3/etc/profile.d/conda.sh
-    source activate base
-
-    cd {path_in}
-
-    python {path_python}ConcatFasta.py --files *.fasta --dir . --outfile {path_out}concat1.fasta --part
-
-    touch {done}
-
-    """.format(path_python = path_python, path_in = path_in, path_out = path_out, done = done)
-
-    return (inputs, outputs, options, spec)
-
 ##########################################################################################################################
 ###############################################---- IQtree ----###########################################################
 ##########################################################################################################################
 
-def iqtree(inputs, done, path_out, path_in, path_part):
+def iqtree(done, path_out, path_in):
     """Runs IQtree from the concoctanated file from Trim"""
-    inputs = [inputs]
+    inputs = []
     outputs = [done+'iqtree.txt'] 
     options = {'cores': 5, 'memory': "10g", 'walltime': "24:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
@@ -246,11 +221,11 @@ def iqtree(inputs, done, path_out, path_in, path_part):
 
     cd {path_out}
 
-    iqtree -s {path_in}concat1_rename_and_manual_trim3.fasta -T AUTO -B 1000 --redo -o Loxococcus_rupicola
+    iqtree -s {path_in}*.fasta -m MFP -nt 12 -T AUTO -B 1000 --redo -o Loxococcus_rupicola
 
     touch {done}iqtree.txt
 
-    """.format(inputs=inputs, done=done, path_out=path_out, path_in=path_in, path_part=path_part)
+    """.format(done=done, path_out=path_out, path_in=path_in)
 
     return (inputs, outputs, options, spec)
 
@@ -346,7 +321,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
-# Renaming mafft output files to be ready for Trim
+# Renaming mafft output files to be ready for IQtree
 # for i in range(len(genes)):
 #     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
 #     if os.path.isfile(pth):
@@ -356,18 +331,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
 #                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
 
-
-# # Running Trim
-# gwf.target_from_template('trim', trim(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
-#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
-#                                         path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done"))
-
-# After running Trim, you must look at the gwf logs Trim and create part.txt manually, and transfer the information about the alignment regions start and end to part.txt
-
 # Running IQtree
-gwf.target_from_template('IQtree', iqtree(inputs = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/done/concatenate_done",
-                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_concatenate/",
-                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/",
-                                        path_part = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
-                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_iqtree/done/"))
+gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/",
+                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/done/"))
