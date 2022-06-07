@@ -191,7 +191,7 @@ def post_mafft(gene, path_in, path_out, path_python, done):
     """Aligning all the sequences for each gene."""
     inputs = [path_in+gene+"_aligned.fasta"]
     outputs = [done+gene, path_out+gene+"_renamed_aligned.fasta"] 
-    options = {'cores': 1, 'memory': "20g", 'walltime': "1:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
+    options = {'cores': 1, 'memory': "20g", 'walltime': "0:15:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
     source /home/sarahe/miniconda3/etc/profile.d/conda.sh
