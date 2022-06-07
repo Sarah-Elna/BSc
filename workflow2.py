@@ -321,20 +321,20 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
-# Renaming mafft output files to be ready for IQtree
-for i in range(0, len(genes)):
-    pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
-    if os.path.isfile(pth):
-        gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
-                                                                    path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
-                                                                    path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-                                                                    done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
+# # Renaming mafft output files to be ready for IQtree
+# for i in range(0, len(genes)):
+#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
+#     if os.path.isfile(pth):
+#         gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
+#                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
+#                                                                     path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+#                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+#                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
 
-# # Running IQtree
-# gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/fasta/",
-#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/",
-#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/done/"))
+# Running IQtree
+gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/fasta/",
+                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/",
+                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/done/"))
 
 #################################################################################################################################
 ########################################### Running workflow for good gene recovery #############################################
