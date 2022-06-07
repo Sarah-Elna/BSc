@@ -400,7 +400,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 # Retrieve sequences and sort into files with gene names
 gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
                                                         path_python = '/home/sarahe/GitHub/BSc/Python_Scripts/', 
-                                                        path_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/',
+                                                        path_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/done/Retrieve_Genes/',
                                                         done = 'Retrieve_all_done.txt'))
 
 # Running MAFFT
