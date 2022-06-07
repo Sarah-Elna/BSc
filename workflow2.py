@@ -352,21 +352,21 @@ sp2 = ['LORU1', 'DSCO0', 'DSCA0', 'DRAB0', 'DPUS1', 'DPRE0', 'DOVO1', 'DMET0', '
 #                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
 #                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/"+sp2[i]))
 
-# get name list from hybpiper run
-gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/",
-                                                    name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/"))
+# # get name list from hybpiper run
+# gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/",
+#                                                     name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/"))
 
-# get sequence length file necessary for statistical summary
-gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/"))
+# # get sequence length file necessary for statistical summary
+# gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/"))
 
-# get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
-gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/'))
+# # get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
+# gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/'))
 
-# # run intronerate
-# for i in range(0, len(sp2)):
-#     gwf.target_from_template('intronerate_'+sp2[i], intronerate(species= sp2[i],
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp2[i]))
+# run intronerate
+for i in range(0, len(sp2)):
+    gwf.target_from_template('intronerate_'+sp2[i], intronerate(species= sp2[i],
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp2[i]))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
 # for i in range(0, len(sp2)):
