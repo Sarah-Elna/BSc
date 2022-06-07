@@ -362,34 +362,35 @@ sp2 = ['LORU1', 'DSCO0', 'DSCA0', 'DRAB0', 'DPUS1', 'DPRE0', 'DOVO1', 'DMET0', '
 # # get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
 # gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/'))
 
-# run intronerate
-for i in range(0, len(sp2)):
-    gwf.target_from_template('intronerate_'+sp2[i], intronerate(species= sp2[i],
-                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp2[i]))
+# # run intronerate
+# for i in range(0, len(sp2)):
+#     gwf.target_from_template('intronerate_'+sp2[i], intronerate(species= sp2[i],
+#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp2[i]))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
-# for i in range(0, len(sp2)):
-#     gwf.target_from_template('coverage_'+sp2[i], coverage(species = sp2[i],
-#                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
-#                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/',
-#                                                         dir_wrk = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/',
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
-#                                                         all_bam = "_all.bam",
-#                                                         all_sorted_bam ="_all_sorted.bam",
-#                                                         all_sorted_bam_bai="_all_sorted.bam.bai",
-#                                                         bam =".bam",
-#                                                         cov=".cov",
-#                                                         fasta = ".fasta",
-#                                                         fasta_amb = ".fasta.amb",
-#                                                         fasta_ann = ".fasta.ann",
-#                                                         fasta_bwt = ".fasta.bwt",
-#                                                         fasta_pac = ".fasta.pac",
-#                                                         fasta_sa = ".fasta.sa",
-#                                                         trimmed_fasta = "_trimmed.fasta",
-#                                                         up_bam = "_up.bam",
-#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage/done/Coverage/"+sp2[i]))
+for i in range(0, len(sp2)):
+    gwf.target_from_template('coverage_'+sp2[i], coverage(species = sp2[i],
+                                                        dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
+                                                        dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/',
+                                                        dir_wrk = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/',
+                                                        path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
+                                                        all_bam = "_all.bam",
+                                                        all_sorted_bam ="_all_sorted.bam",
+                                                        all_sorted_bam_bai="_all_sorted.bam.bai",
+                                                        bam =".bam",
+                                                        cov=".cov",
+                                                        fasta = ".fasta",
+                                                        fasta_amb = ".fasta.amb",
+                                                        fasta_ann = ".fasta.ann",
+                                                        fasta_bwt = ".fasta.bwt",
+                                                        fasta_pac = ".fasta.pac",
+                                                        fasta_sa = ".fasta.sa",
+                                                        trimmed_fasta = "_trimmed.fasta",
+                                                        up_bam = "_up.bam",
+                                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage/done/Coverage/"+sp2[i]))
+
 # Define genes
 genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK', 'ndhA', 'ndhB', 'ndhC', 'ndhD', 'ndhF', 'ndhG', 'ndhH', 'ndhI', 'ndhJ', 'petA', 'petB', 'petD', 'petL', 'petN', 'psaA', 'psaB', 'psaC', 'psaI', 'psbA', 'psbB', 'psbC', 'psbD', 'psbK', 'psbL', 'psbZ', 'psI', 'rbcL', 'rpl16', 'rpl2', 'rpl22', 'rpl23', 'rpl32', 'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11', 'rps12', 'rps15', 'rps16', 'rps18', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8', 'rrn16', 'rrn23', 'rrn4,5', 'rrn5', 'rrn5 Dio', 'trnA', 'trnC', 'trnD', 'trnfM', 'trnG', 'trnH', 'trnI', 'trnK', 'trnL', 'trnN', 'trnP', 'trnQ', 'trnS', 'trnT', 'trnV', 'ycf1', 'ycf2', 'ycf3', 'ycf4', 'ycl2']
 
