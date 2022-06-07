@@ -423,6 +423,6 @@ for i in range(len(genes)):
                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/11_post_mafft2/done/"))
 
 # Running IQtree
-gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/11_post_mafft2/fasta/",
+gwf.target_from_template('IQtree2', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/11_post_mafft2/fasta/",
                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/12_iqtree2/",
                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/12_iqtree2/done/"))
