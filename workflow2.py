@@ -321,7 +321,7 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
-Renaming mafft output files to be ready for IQtree
+# Renaming mafft output files to be ready for IQtree
 for i in range(len(genes)):
     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
     if os.path.isfile(pth):
