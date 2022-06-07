@@ -137,10 +137,10 @@ def coverage(species, dir_in, dir_out, dir_wrk, path_in, path_out, done, all_bam
 ###########################################---- Retrieve Sequences ----###################################################
 ##########################################################################################################################
 
-def retrieve(path_in):
+def retrieve(path_in, path_python, path_out, done):
     """Retrieve gene sequences from all the species and create an unaligned multifasta for each gene."""
     inputs = []
-    outputs = [path_in + 'done/Retrieve_Genes/Retrieve_all_done.txt']
+    outputs = [done]
     options = {'cores': 10, 'memory': "20g", 'walltime': "12:00:00", 'account':"Dypsis_Chloroplast_Phylogeny"}
 
     spec = """
@@ -151,9 +151,9 @@ def retrieve(path_in):
 
     ls *trimmed.fasta > filelist.txt
 
-    python /home/sarahe/GitHub/BSc/Python_Scripts/samples2genes.py > /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/outstats.csv
+    python {psth_python}samples2genes.py > {path_out}outstats.csv
 
-    touch /home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/Retrieve_all_done.txt
+    touch {path_out}Retrieve_all_done.txt
 
     """.format(path_in = path_in)
 
@@ -398,7 +398,10 @@ genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK',
 gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
 
 # Retrieve sequences and sort into files with gene names
-gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/"))
+gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
+                                                        path_python = '/home/sarahe/GitHub/BSc/Python_Scripts/', 
+                                                        path_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Retrieve_Genes/',
+                                                        done = path_out+'Retrieve_all_done.txt'))
 
 # Running MAFFT
 # for i in range(len(genes)):
