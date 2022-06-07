@@ -389,7 +389,7 @@ for i in range(0, len(sp2)):
                                                         trimmed_fasta = "_trimmed.fasta",
                                                         up_bam = "_up.bam",
                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage/done/Coverage/"+sp2[i]))
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/done/Coverage/"+sp2[i]))
 
 # Define genes
 genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK', 'ndhA', 'ndhB', 'ndhC', 'ndhD', 'ndhF', 'ndhG', 'ndhH', 'ndhI', 'ndhJ', 'petA', 'petB', 'petD', 'petL', 'petN', 'psaA', 'psaB', 'psaC', 'psaI', 'psbA', 'psbB', 'psbC', 'psbD', 'psbK', 'psbL', 'psbZ', 'psI', 'rbcL', 'rpl16', 'rpl2', 'rpl22', 'rpl23', 'rpl32', 'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11', 'rps12', 'rps15', 'rps16', 'rps18', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8', 'rrn16', 'rrn23', 'rrn4,5', 'rrn5', 'rrn5 Dio', 'trnA', 'trnC', 'trnD', 'trnfM', 'trnG', 'trnH', 'trnI', 'trnK', 'trnL', 'trnN', 'trnP', 'trnQ', 'trnS', 'trnT', 'trnV', 'ycf1', 'ycf2', 'ycf3', 'ycf4', 'ycl2']
