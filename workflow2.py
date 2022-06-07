@@ -348,33 +348,33 @@ for i in range(len(genes)):
 #                                                         p1 = "_clean-Read1.fastq",
 #                                                         p2 = "_clean-Read2.fastq",
 #                                                         un = "_clean-Read12-single.fastq",
-#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
 #                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/"+sp[i]))
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/"+sp[i]))
 
 # # get name list from hybpiper run
-# gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/",
-#                                                     name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
+# gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/",
+#                                                     name_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/"))
 
 # # get sequence length file necessary for statistical summary
-# gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/"))
+# gwf.target_from_template('sequence_length', seq_lenghts(path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/"))
 
 # # get statistics, which can be used with gene_coverage_gg_plot.R to visualise results
-# gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/'))
+# gwf.target_from_template('statistics', stats_summary(path = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/'))
 
 # # run intronerate
-# for i in range(0, len(sp)):
-#     gwf.target_from_template('intronerate_'+sp[i], intronerate(species= sp[i],
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/done/Intronerate/"+sp[i]))
+# for i in range(0, len(sp2)):
+#     gwf.target_from_template('intronerate_'+sp2[i], intronerate(species= sp2[i],
+#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp[i]))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
-# for i in range(0, len(sp)):
-#     gwf.target_from_template('coverage_'+sp[i], coverage(species = sp[i],
+# for i in range(0, len(sp2)):
+#     gwf.target_from_template('coverage_'+sp2[i], coverage(species = sp2[i],
 #                                                         dir_in = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/',
-#                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/',
+#                                                         dir_out = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/',
 #                                                         dir_wrk = '/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/',
-#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/01_HybPiper/",
+#                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
 #                                                         all_bam = "_all.bam",
 #                                                         all_sorted_bam ="_all_sorted.bam",
 #                                                         all_sorted_bam_bai="_all_sorted.bam.bai",
@@ -388,8 +388,8 @@ for i in range(len(genes)):
 #                                                         fasta_sa = ".fasta.sa",
 #                                                         trimmed_fasta = "_trimmed.fasta",
 #                                                         up_bam = "_up.bam",
-#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/done/Coverage/"+sp[i]))
+#                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/",
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage/done/Coverage/"+sp2[i]))
 # Define genes
 genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK', 'ndhA', 'ndhB', 'ndhC', 'ndhD', 'ndhF', 'ndhG', 'ndhH', 'ndhI', 'ndhJ', 'petA', 'petB', 'petD', 'petL', 'petN', 'psaA', 'psaB', 'psaC', 'psaI', 'psbA', 'psbB', 'psbC', 'psbD', 'psbK', 'psbL', 'psbZ', 'psI', 'rbcL', 'rpl16', 'rpl2', 'rpl22', 'rpl23', 'rpl32', 'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11', 'rps12', 'rps15', 'rps16', 'rps18', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8', 'rrn16', 'rrn23', 'rrn4,5', 'rrn5', 'rrn5 Dio', 'trnA', 'trnC', 'trnD', 'trnfM', 'trnG', 'trnH', 'trnI', 'trnK', 'trnL', 'trnN', 'trnP', 'trnQ', 'trnS', 'trnT', 'trnV', 'ycf1', 'ycf2', 'ycf3', 'ycf4', 'ycl2']
 
@@ -397,28 +397,28 @@ genes = ['accD', 'atpA', 'atpB', 'atpF', 'atpH', 'atpI', 'ccsA', 'clpP', 'matK',
 gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.6","0.67","0.7","0.75","0.8","0.85","0.9","0.95"]
 
 # # Retrieve sequences and sort into files with gene names
-#gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/02_Coverage/"))
+#gwf.target_from_template('Retrieve_genes', retrieve(path_in="/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/08_Coverage2/"))
 
 # Running MAFFT
 # for i in range(len(genes)):
-#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/"+genes[i]+'.FNA'
+#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/09_blacklist2/"+genes[i]+'.FNA'
 #     if os.path.isfile(pth):
 #         gwf.target_from_template('Mafft_'+str(i), mafft(gene = genes[i],
-#         path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-#         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
-#         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
+#         path_out= "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/10_mafft2/",
+#         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/09_blacklist2/",
+#         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/10_mafft2/done/"+genes[i]))
 
 # # Renaming mafft output files to be ready for IQtree
 # for i in range(len(genes)):
-#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
+#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/10_mafft2/"+genes[i]+'_aligned.fasta'
 #     if os.path.isfile(pth):
 #         gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
-#                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-#                                                                     path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+#                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/10_mafft2/",
+#                                                                     path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/11_post_mafft2/",
 #                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-#                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
+#                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/11_post_mafft2/done/"))
 
 # # Running IQtree
-# gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/fasta/",
-#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/",
-#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/done/"))
+# gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/11_post_mafft2/fasta/",
+#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/12_iqtree2/",
+#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/12_iqtree2/done/"))
