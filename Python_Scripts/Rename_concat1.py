@@ -18,6 +18,11 @@ def rename_concat(id_list, name_list, concat1_path):
     original_file = open(concat1_path+'concat1.fasta', 'r')
     file_line_list = original_file.readlines()
     for line in file_line_list:
+        if line[0] == '>' and line[1] == '_' :
+            for i in range(0, len(id_list)):
+                if id_list[i] == line[4:9]:
+                    new_file.write('>'+name_list[i])
+                    new_file.write('\n')        
         if line[0] == '>':
             for i in range(0, len(id_list)):
                 if id_list[i] == line[1:6]:

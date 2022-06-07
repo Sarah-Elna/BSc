@@ -321,18 +321,20 @@ gt_values =["0.1","0.15","0.2","0.25","0.3","0.33","0.4","0.45","0.5","0.55","0.
 #         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/03_blacklisting/",
 #         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/done/"+genes[i]))
 
-# Renaming mafft output files to be ready for IQtree
-# for i in range(len(genes)):
-#     pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
-#     if os.path.isfile(pth):
-#         gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
-#                                                                     path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
-#                                                                     path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
-#                                                                     path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
-#                                                                     done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
-# Running IQtree
-gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/fasta/",
-                                        path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/",
-                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/done/"))
+Renaming mafft output files to be ready for IQtree
+for i in range(len(genes)):
+    pth = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/"+genes[i]+'_aligned.fasta'
+    if os.path.isfile(pth):
+        gwf.target_from_template('post_mafft_'+str(i), post_mafft(gene = genes[i],
+                                                                    path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/04_mafft/",
+                                                                    path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/",
+                                                                    path_python = "/home/sarahe/GitHub/BSc/Python_Scripts/",
+                                                                    done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/done/"))
+
+# # Running IQtree
+# gwf.target_from_template('IQtree', iqtree(path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/05_post_mafft/fasta/",
+#                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/",
+#                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/06_iqtree/done/"))
 
 # sp2 = ['Loxococcus-rupicola-SBL8-S7', 'Dypsis_scottiana_45070_S65_L001', 'Dypsis_scandens_161026-1_S26_L001', 'Dypsis_rabepierrei_161017-4_S14_L001', 'Dypsis_pustulata_45114_S72_L001', 'Dypsis_prestoniana_45129_S74_L001', 'Dypsis_ovojavavy_161115-5_S19_L001', 'Dypsis_metallica_161115-6_S20_L001', 'Dypsis_hildebrandtii_45148_S57_L001', 'Dypsis_hiarakae_161017-3_S3_L001', 'Dypsis_dransfieldii_161017-6_S5_L001', 'Dypsis_confusa_161115-3_S17_L001', 'Dypsis_bonsai_45108_S52_L001', 'Dypsis_baronii_161011-13_S8_L001']
+# sp2 =['LORU1', 'DSCO0', 'DSCA0', 'DRAB0', 'DPUS1', 'DPRE0', 'DOVO1', 'DMET0', 'DHIL0']
