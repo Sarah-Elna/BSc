@@ -12,6 +12,14 @@ def rename_targets(in_file_path):
     file = open(in_file, 'r')
     file_line_list = file.readlines()
     for line in file_line_list:
+        if line != '' and line[0] == '>' and line[1] == '_'
+            new_line = line[0] + line[4:9]
+            for i in range(0, len(duplicats_startswith_0)):
+                if duplicats_startswith_0[i] in new_line:
+                    new_line = line[0:5]+'0'
+            for j in range(0, len(duplicats_other)):
+                if duplicats_other[j] in new_line:
+                    new_line = line[0:5]+'1'
         if line != '' and line[0] == '>':
             new_line = line[0:6]
             for i in range(0, len(duplicats_startswith_0)):
