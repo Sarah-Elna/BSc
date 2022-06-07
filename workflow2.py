@@ -350,7 +350,7 @@ for i in range(0, len(sp2)):
                                                         un = "_clean-Read12-single.fastq",
                                                         path_out = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/00_data/",
-                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/"+sp[i]))
+                                                        done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/"+sp2[i]))
 
 # # get name list from hybpiper run
 # gwf.target_from_template('name_list', get_namelist(done_path = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/",
@@ -366,7 +366,7 @@ for i in range(0, len(sp2)):
 # for i in range(0, len(sp2)):
 #     gwf.target_from_template('intronerate_'+sp2[i], intronerate(species= sp2[i],
 #                                                         path_in = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/",
-#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp[i]))
+#                                                         done = "/home/sarahe/Dypsis_Chloroplast_Phylogeny/BSc/07_HybPiper2/done/Intronerate/"+sp2[i]))
 
 # run Coverage to estimate the significance of the contigs found by hybpiper
 # for i in range(0, len(sp2)):
