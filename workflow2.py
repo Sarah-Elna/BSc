@@ -151,7 +151,7 @@ def retrieve(path_in, path_python, path_out, done):
 
     ls *trimmed.fasta > filelist.txt
 
-    python {psth_python}samples2genes.py > {path_out}outstats.csv
+    python {path_python}samples2genes.py > {path_out}outstats.csv
 
     touch {path_out}Retrieve_all_done.txt
 
